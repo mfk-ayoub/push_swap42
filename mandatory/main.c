@@ -6,13 +6,25 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 11:33:48 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/28 11:58:15 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void free_char_array(char **arr)
+{
+    for (int i = 0; arr[i] != NULL; i++) {
+        free(arr[i]);
+    }
+    free(arr);
+}
 
+void free_parsing_result(char **par, char *tmp)
+{
+    free_char_array(par);
+    free(tmp);
+}
 
 int ft_strlen_array(char **arr)
 {
@@ -49,7 +61,7 @@ char **parsing(int ac, char **av)
 		}
 		nbrs = ft_split(tmp, ' ');
 	}
-
+	free(tmp);
 	return nbrs;
 }
 
@@ -66,10 +78,12 @@ int main(int ac, char **av)
     par = parsing(ac, av);
 	ft_check_errors(par);
 	a = init_stack_a(ft_strlen_array(par), par);
+	free_char_array(par);
 	if (!is_sorted(a))
 	{
 		if (stack_size(a) == 2)
 			sa(&a);
 	}
+	free_stack(a);
 	return (0);
 }

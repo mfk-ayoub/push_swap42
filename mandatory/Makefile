@@ -6,14 +6,14 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/01/28 11:30:40 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/01/28 11:57:26 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 INCLUDE = ./mandatory/push_swap.h
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -fsanitize=address -g3
 CC = cc
 
 RED		= \033[1;31m
@@ -25,6 +25,7 @@ CYAN 	= \033[1;36m
 CFILES = main.c \
 		 sort_algo.c\
 		 check_sorted.c\
+		 free_stack.c\
 
 CHELPER = ../utlis/check_min_max.c\
 		  ../utlis/ft_check_errors.c \

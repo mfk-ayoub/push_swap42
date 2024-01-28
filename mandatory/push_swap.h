@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 11:31:05 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/28 11:57:09 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ void sb(t_stack **b);
 void ss(t_stack **a, t_stack **b);
 
 
-
+//free
+void free_stack_node(t_stack *node);
+void free_stack(t_stack *stack);
 
 int is_sorted(t_stack *stack);
 int     check_min(t_stack *stack_a);
