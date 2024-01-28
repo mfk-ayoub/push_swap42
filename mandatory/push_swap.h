@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/23 05:29:47 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/28 08:39:41 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@ typedef struct u_stack
 }   t_stack;
 
 
+size_t	ft_strlen(const char *str);
 long     ft_atoi(char *str);
 void    ft_check_errors(char **data);
 int	    ft_isdigit(int index);
 void	ft_putstr_fd(char *str, int fd);
 char	**ft_split(char const *s, char c);
-char    **string_to_av(char *av, int *ac);
+char    **parsing(int ac, char **av);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
+
 
 void print_stack(t_stack *stack_a);
 void bubble_sort_stack(t_stack *stack);
@@ -43,7 +47,8 @@ void bubble_sort_stack(t_stack *stack);
 int     check_min(t_stack *stack_a);
 int     check_max(t_stack *stack_a);
 int	    stack_size(t_stack  *stack_a);
-t_stack *init_stack_a(int ac, char **av);
+t_stack *init_stack_a(int len, char **av);
+
 int	stack_size(t_stack  *stack_a);
 
 #endif 

@@ -6,22 +6,13 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 00:59:14 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/23 01:02:39 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/28 08:37:27 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../mandatory/push_swap.h"
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	lenght;
 
-	lenght = 0;
-	while (str[lenght] != '\0')
-	{
-		lenght++;
-	}
-	return (lenght);
-}
 
 void	*ft_memcpy(void *to, const void *from, size_t n)
 {

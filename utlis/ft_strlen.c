@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_to_av.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 05:30:55 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/23 05:31:40 by ayel-mou         ###   ########.fr       */
+/*   Created: 2024/01/28 08:36:50 by ayel-mou          #+#    #+#             */
+/*   Updated: 2024/01/28 08:38:49 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
 
-char **string_to_av(char *av, int *ac)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
-	char	**ret;
-	i = 0;
-	*ac = 0;
-	ret = ft_split(av, ' ');
-	while (ret[*ac])
-		(*ac)++;
-	i = *ac;
-	while (i)
+	size_t	lenght;
+
+	lenght = 0;
+	while (str[lenght] != '\0')
 	{
-		ret[i] = ret[i - 1];
-		i--;
+		lenght++;
 	}
-	(*ac)++;
-	return (ret);
+	return (lenght);
 }

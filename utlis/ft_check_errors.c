@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:39:13 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/23 01:49:16 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/28 07:37:36 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int ft_all_isdigit(char **data)
 {
     int i;
 
-    i = 1; 
+    i = 0; 
     while (data[i])
     {
         int j = 0;
@@ -46,7 +46,7 @@ int  ft_duplicate(char **data)
     int i;
     int j;
 
-    i = 1;
+    i = 0;
     while (data[i])
     {
         j = i + 1;
@@ -62,7 +62,7 @@ int  ft_duplicate(char **data)
 }
 void ft_check_errors(char **data)
 {
-    int i = 1;
+    int i = 0;
 
     if (!ft_all_isdigit(data))
     {
