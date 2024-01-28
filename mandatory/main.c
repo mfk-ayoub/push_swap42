@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 08:47:05 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/28 09:24:06 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,15 @@ char **parsing(int ac, char **av)
 int main(int ac, char **av)
 {
 	t_stack *a;
+	t_stack *b;
 	char **par;
 
+	a = NULL;
+	b = NULL;
 	if (ac < 2)
 		return 0;
-
-	par = parsing(ac, av);
+    par = parsing(ac, av);
 	ft_check_errors(par);
-
 	a = init_stack_a(ft_strlen_array(par), par);
 	print_stack(a);
 	
