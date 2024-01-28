@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 08:39:41 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/28 09:29:42 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 
 # define EXIT_SUCCESS 0
 # define EXIT_FAILURE 1
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <limits.h>
 #include <stdio.h>
 #include <string.h>
+
 typedef struct u_stack
 {
     int data;
