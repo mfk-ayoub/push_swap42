@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/28 09:30:55 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 09:32:24 by ayel-mou         ###   ########.fr       */
+/*   Created: 2024/01/28 10:58:28 by ayel-mou          #+#    #+#             */
+/*   Updated: 2024/01/28 11:10:30 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void sa(t_stack** stack)
-{
-	int tmp;
+#include "../mandatory/push_swap.h"
 
-	if (*stack != NULL && (*stack)->next != NULL)
-	{
-		temp = (*stack)->data;
-		(*stack)->data = (*stack)->next->data;
-		(*stack)->next->data = temp;
-	}
+void    push_b(t_stack **a, t_stack **b)
+{
+    if (*a)
+    {
+        t_stack *tmp = *a;
+        *a = (*a)->next;
+        if (*stack_a)
+            (*a)->prev = NULL;
+
+        tmp->next = *b;
+        tmp->prev = NULL;
+        if (*b)
+            (*b)->prev = tmp;
+
+        *b = tmp;
+    }
 }

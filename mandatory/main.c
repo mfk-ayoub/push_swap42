@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 09:56:00 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/28 11:33:48 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ int main(int ac, char **av)
     par = parsing(ac, av);
 	ft_check_errors(par);
 	a = init_stack_a(ft_strlen_array(par), par);
-	print_stack(a);
-	
-	bubble_sort_stack(a);
-	print_stack(a);
-
-	return 0;
+	if (!is_sorted(a))
+	{
+		if (stack_size(a) == 2)
+			sa(&a);
+	}
+	return (0);
 }

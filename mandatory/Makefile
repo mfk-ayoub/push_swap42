@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/01/28 09:20:16 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/01/28 11:30:40 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ BLUE	= \033[1;34m
 CYAN 	= \033[1;36m
 
 CFILES = main.c \
-		 sort_algo.c
+		 sort_algo.c\
+		 check_sorted.c\
 
 CHELPER = ../utlis/check_min_max.c\
 		  ../utlis/ft_check_errors.c \
@@ -36,6 +37,8 @@ CHELPER = ../utlis/check_min_max.c\
 		  ../utlis/ft_strlen.c \
 		  ../utlis/ft_strlcat.c \
 		  ../utlis/ft_strjoin.c\
+		  ../utlis/ft_putendl_fd.c\
+		  ../operations/swap.c\
 
 OBJ = $(CFILES:.c=.o) $(CHELPER:.c=.o)
 

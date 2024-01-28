@@ -6,13 +6,13 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:17:38 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/23 00:47:54 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/28 11:18:38 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(int *a, int *b)
+void swapp(int *a, int *b)
 {
     int temp = *a;
     *a = *b;
@@ -37,7 +37,7 @@ void bubble_sort_stack(t_stack *stack)
         {
             if (ptr1->data > ptr1->next->data)
             {
-                swap(&(ptr1->data), &(ptr1->next->data));
+                swapp(&(ptr1->data), &(ptr1->next->data));
                 swapped = 1;
             }
             ptr1 = ptr1->next;

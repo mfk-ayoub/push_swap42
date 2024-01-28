@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:31:28 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 10:02:14 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/28 11:17:59 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_stack *init_stack(int value)
     stack_node->data = value;
     stack_node->next = NULL;
     stack_node->prev = NULL;
-    return stack_node;
+    return (stack_node);
 }
 
 t_stack *add_stack(t_stack *stack, int value)
@@ -30,12 +30,12 @@ t_stack *add_stack(t_stack *stack, int value)
     t_stack *tmp = stack;
     t_stack *new_node = init_stack(value);
     if (stack == NULL)
-        return new_node;
+        return (new_node);
     while (tmp->next != NULL)
         tmp = tmp->next;
     tmp->next = new_node;
     new_node->prev = tmp;
-    return stack;
+    return (stack);
 }
 
 t_stack *init_stack_a(int len, char **av)
@@ -56,12 +56,12 @@ t_stack *init_stack_a(int len, char **av)
     return (stack_a);
 }
 
-void print_stack(t_stack *stack)
-{
-    while (stack != NULL)
-    {
-        printf("%d ", stack->data);
-        stack = stack->next;
-    }
-    printf("\n");
-}
+// void print_stack(t_stack *stack)
+// {
+//     while (stack != NULL)
+//     {
+//         printf("%d ", stack->data);
+//         stack = stack->next;
+//     }
+//     printf("\n");
+// }
