@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/29 05:54:36 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/29 06:49:33 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,39 +42,33 @@ int ft_strlen_array(char **arr)
 	}
 	return (length);
 }
-char **parsing(int ac, char **av)
-{
-    int i;
-    char **nbrs;
-    char *tmp;
-    char *str;
 
-    i = 1;
-    tmp = NULL;
-    str = NULL;
-    if (ac == 2)
-    {
-        nbrs = ft_split(av[1], ' ');
-    }
-    else
-    {
-        while (i < ac)
-        {
-            tmp = str;
-            str = ft_strjoin(str, av[i]);
-            free(tmp);
-            if (i < ac - 1)
-            {
-                tmp = str;
-                str = ft_strjoin(str, " ");
-                free(tmp);
-            }
-            i++;
-        }
-        nbrs = ft_split(str, ' ');
-    }
+char	**parsing(int ac, char **av)
+{
+	char	**nbrs;
+	int		i;
+	char	*str;
+	char	*tmp;
+
+	str = NULL;
+	i = 1;
+	while (i < ac)
+	{
+		tmp = ft_strjoin(str, av[i]);
+		if (!tmp)
+			exit(1);
+		free(str);
+		str = ft_strjoin(tmp, " ");
+		if (!tmp)
+			exit(1);
+		free(tmp);
+		i++;
+	}
+	nbrs = ft_split(str, ' ');
 	free(str);
-    return nbrs;
+	if (!nbrs)
+		exit(0);
+	return (nbrs);
 }
 
 int main(int ac, char **av)
