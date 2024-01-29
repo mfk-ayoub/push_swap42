@@ -6,36 +6,12 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 00:59:14 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 08:37:27 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/29 03:30:34 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
 
-
-
-void	*ft_memcpy(void *to, const void *from, size_t n)
-{
-	size_t			i;
-	unsigned char	*ptr;
-	unsigned char	*str;
-
-	if (to == NULL && from == NULL)
-		return (NULL);
-	ptr = to;
-	str = (unsigned char *)from;
-	if (ptr == str)
-	{
-		return (ptr);
-	}
-	i = 0;
-	while (i < n)
-	{
-		ptr[i] = str[i];
-		i++;
-	}
-	return (ptr);
-}
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -53,19 +29,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (ft_strlen(src));
 }
-char	*ft_strdup(const char *src)
-{
-	size_t	size;
-	char	*dest;
 
-	size = ft_strlen(src);
-	dest = (char *)malloc(size * sizeof(char) + 1);
-	if (dest == NULL)
-		return (0);
-	ft_memcpy(dest, src, size);
-	dest[size] = '\0';
-	return (dest);
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

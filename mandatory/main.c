@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 11:58:15 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/29 05:54:36 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 void free_char_array(char **arr)
 {
-    for (int i = 0; arr[i] != NULL; i++) {
+    int i;
+
+    i = 0;
+    while (arr[i] != NULL)
+    {
         free(arr[i]);
+        i++;
     }
     free(arr);
 }
@@ -37,32 +42,39 @@ int ft_strlen_array(char **arr)
 	}
 	return (length);
 }
-
 char **parsing(int ac, char **av)
 {
-	int i;
-	char **nbrs;
-	char *tmp;
-	
-	i = 1;
-	tmp = NULL;
-	if (ac == 2)
-	{
-		nbrs = ft_split(av[1], ' ');
-	}
-	else
-	{
-		while (i < ac)
-		{
-			tmp = ft_strjoin(tmp, av[i]);
-			if (i < ac - 1)
-				tmp = ft_strjoin(tmp, " ");
-			i++;
-		}
-		nbrs = ft_split(tmp, ' ');
-	}
-	free(tmp);
-	return nbrs;
+    int i;
+    char **nbrs;
+    char *tmp;
+    char *str;
+
+    i = 1;
+    tmp = NULL;
+    str = NULL;
+    if (ac == 2)
+    {
+        nbrs = ft_split(av[1], ' ');
+    }
+    else
+    {
+        while (i < ac)
+        {
+            tmp = str;
+            str = ft_strjoin(str, av[i]);
+            free(tmp);
+            if (i < ac - 1)
+            {
+                tmp = str;
+                str = ft_strjoin(str, " ");
+                free(tmp);
+            }
+            i++;
+        }
+        nbrs = ft_split(str, ' ');
+    }
+	free(str);
+    return nbrs;
 }
 
 int main(int ac, char **av)
@@ -77,13 +89,14 @@ int main(int ac, char **av)
 		return (0);
     par = parsing(ac, av);
 	ft_check_errors(par);
-	a = init_stack_a(ft_strlen_array(par), par);
+	a = init_stack(ft_strlen_array(par), par);
 	free_char_array(par);
 	if (!is_sorted(a))
 	{
-		if (stack_size(a) == 2)
+		if (stack_size(a) == 2) 
 			sa(&a);
 	}
+    print_stack(a);
 	free_stack(a);
 	return (0);
 }

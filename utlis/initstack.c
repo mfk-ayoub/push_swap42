@@ -6,13 +6,13 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:31:28 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 11:17:59 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/01/29 05:53:20 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
 
-t_stack *init_stack(int value)
+t_stack *init_node(int value)
 {
     t_stack *stack_node = malloc(sizeof(t_stack));
     if (stack_node == NULL)
@@ -28,7 +28,7 @@ t_stack *init_stack(int value)
 t_stack *add_stack(t_stack *stack, int value)
 {
     t_stack *tmp = stack;
-    t_stack *new_node = init_stack(value);
+    t_stack *new_node = init_node(value);
     if (stack == NULL)
         return (new_node);
     while (tmp->next != NULL)
@@ -38,30 +38,30 @@ t_stack *add_stack(t_stack *stack, int value)
     return (stack);
 }
 
-t_stack *init_stack_a(int len, char **av)
+t_stack *init_stack(int len, char **av)
 {
     int i = 0;
-    t_stack *stack_a = NULL;
+    t_stack *stack = NULL;
 
     while (i < len)
     {
-        stack_a = add_stack(stack_a, ft_atoi(av[i]));
+        stack = add_stack(stack, ft_atoi(av[i]));
         i++;
     }
-    if (stack_size(stack_a) == 1)
+    if (stack_size(stack) == 1)
     {
-        ft_putstr_fd("Error1\n", 2);
+        ft_putstr_fd("Error4\n", 2);
         exit(1); 
     }
-    return (stack_a);
+    return (stack);
 }
 
-// void print_stack(t_stack *stack)
-// {
-//     while (stack != NULL)
-//     {
-//         printf("%d ", stack->data);
-//         stack = stack->next;
-//     }
-//     printf("\n");
-// }
+void print_stack(t_stack *stack)
+{
+    while (stack != NULL)
+    {
+        printf("%d ", stack->data);
+        stack = stack->next;
+    }
+    printf("\n");
+}
