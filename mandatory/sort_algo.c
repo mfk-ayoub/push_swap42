@@ -6,42 +6,27 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:17:38 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 11:18:38 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/01 11:50:44 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swapp(int *a, int *b)
+void sort_three(t_stack **a)
 {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+    t_stack *max = check_max(*a);
 
-void bubble_sort_stack(t_stack *stack)
-{
-    int swapped;
-    t_stack *ptr1;
-    t_stack *lptr = NULL;
+    if (*a == max)
+	{
+        ra(a);
+    }
+	else if ((*a)->next == max)
+	{
+        rra(a);
+    }
 
-    if (stack == NULL)
-        return;
-
-    do
-    {
-        swapped = 0;
-        ptr1 = stack;
-
-        while (ptr1->next != lptr)
-        {
-            if (ptr1->data > ptr1->next->data)
-            {
-                swapp(&(ptr1->data), &(ptr1->next->data));
-                swapped = 1;
-            }
-            ptr1 = ptr1->next;
-        }
-        lptr = ptr1;
-    } while (swapped);
+    if ((*a)->data > (*a)->next->data)
+	{
+        sa(a);
+    }
 }

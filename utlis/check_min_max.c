@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:23:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/22 23:16:54 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/01 11:53:52 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,19 @@ int check_min(t_stack *stack_a)
     }
     return (min);
 }
-int check_max(t_stack *stack_a)
+t_stack *check_max(t_stack *stack)
 {
-    int max;
-    t_stack *tmp;
+    t_stack *max = stack;
+    t_stack *current = stack->next;
 
-    tmp = stack_a;
-    max = tmp->data;
-    while (tmp)
+    while (current != NULL)
     {
-        if (tmp->data > max)
-            max = tmp->data;
-        tmp = tmp->next;
+        if (current->data > max->data)
+        {
+            max = current;
+        }
+        current = current->next;
     }
-    return (max);
+
+    return max;
 }

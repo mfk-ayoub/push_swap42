@@ -12,20 +12,20 @@
 
 #include "push_swap.h"
 
-int is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
-    if (stack == NULL || stack->next == NULL)
-    {
-        return (1);
-    }
+	if (stack == NULL || stack->next == NULL)
+	{
+		return (1);
+	}
 
-    while (stack->next != NULL) 
-    {
-        if (stack->data > stack->next->data)
-        {
-            return (0); 
-        }
-        stack = stack->next;
-    }
-    return (1);
+	while (stack->next != NULL)
+	{
+		if (stack->data > stack->next->data)
+		{
+			return (0);
+		}
+		stack = stack->next;
+	}
+	return (1);
 }

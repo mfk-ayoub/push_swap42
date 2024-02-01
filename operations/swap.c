@@ -12,36 +12,36 @@
 
 #include "../mandatory/push_swap.h"
 
-void swap(t_stack **stack)
+void	swap(t_stack **stack)
 {
+	t_stack	*first;
+	t_stack	*second;
+
 	if (*stack && (*stack)->next)
 	{
-		t_stack *first = *stack;
-		t_stack *second = (*stack)->next;
-
+		first = *stack;
+		second = (*stack)->next;
 		first->next = second->next;
 		second->prev = first->prev;
-
 		first->prev = second;
 		second->next = first;
-
 		*stack = second;
 	}
 }
-void sa(t_stack **a)
+void	sa(t_stack **a)
 {
-    swap(a);
+	swap(a);
 	ft_putendl_fd("sa", 1);
 }
-void sb(t_stack **b)
+void	sb(t_stack **b)
 {
-    swap(b);
+	swap(b);
 	ft_putendl_fd("sb", 1);
 }
 
-void ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b)
 {
-    swap(a);
-    swap(b);
+	swap(a);
+	swap(b);
 	ft_putendl_fd("ss", 1);
 }

@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/01/29 03:30:08 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/01 11:46:08 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,8 @@ CHELPER = ../utlis/check_min_max.c\
 		  ../utlis/ft_memcpy.c \
 		  ../operations/rotate.c \
 		  ../operations/swap.c \
+		  ../operations/push.c\
+		  ../operations/reverse_rotate.c\
 
 
 OBJ = $(CFILES:.c=.o) $(CHELPER:.c=.o)
