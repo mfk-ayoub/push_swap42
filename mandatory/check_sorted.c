@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:26:54 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 11:32:12 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/02 10:39:44 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	is_sorted(t_stack *stack)
 	{
 		return (1);
 	}
-
 	while (stack->next != NULL)
 	{
 		if (stack->data > stack->next->data)

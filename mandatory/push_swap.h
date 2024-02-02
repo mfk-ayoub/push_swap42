@@ -52,24 +52,22 @@ void				swap(t_stack **stack);
 void				sa(t_stack **a);
 void				sb(t_stack **b);
 void				ss(t_stack **a, t_stack **b);
-//rotate
+// rotate
 void				ra(t_stack **a);
 void				rotate(t_stack **stack);
 void				rb(t_stack **b);
 void				rr(t_stack **a, t_stack **b);
-//push 
+// push
 void				pb(t_stack **b, t_stack **a);
 void				pa(t_stack **a, t_stack **b);
 void				push(t_stack **dst, t_stack **src);
 
 int					pop(t_stack **s);
-//reverse rotate
-void				reverse_rotate(t_stack** stack);
+// reverse rotate
+void				reverse_rotate(t_stack **stack);
 void				rra(t_stack **a);
 void				rrb(t_stack **b);
-void				rrr(t_stack **a , t_stack **b);
-
-
+void				rrr(t_stack **a, t_stack **b);
 
 // free
 void				free_stack_node(t_stack *node);
@@ -79,7 +77,7 @@ void				free_char_array(char **arr);
 // sorted algo
 void				sort_three(t_stack **a);
 
-//checker
+// checker
 int					is_sorted(t_stack *stack);
 int					check_min(t_stack *stack_a);
 t_stack				*check_max(t_stack *stack);
