@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/01 11:52:39 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/02 10:20:26 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ void				rr(t_stack **a, t_stack **b);
 //push 
 void				pb(t_stack **b, t_stack **a);
 void				pa(t_stack **a, t_stack **b);
-void				push(t_stack **s, int nb);
+void				push(t_stack **dst, t_stack **src);
+
+int					pop(t_stack **s);
 //reverse rotate
 void				reverse_rotate(t_stack** stack);
 void				rra(t_stack **a);
@@ -72,6 +74,7 @@ void				rrr(t_stack **a , t_stack **b);
 // free
 void				free_stack_node(t_stack *node);
 void				free_stack(t_stack *stack);
+void				free_char_array(char **arr);
 
 // sorted algo
 void				sort_three(t_stack **a);
