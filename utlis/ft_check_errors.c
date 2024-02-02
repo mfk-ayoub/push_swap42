@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:39:13 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/02 10:00:01 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/02 10:34:42 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ void ft_check_errors(char **data)
 
     if (!ft_all_isdigit(data))
     {
-        ft_putstr_fd("Error1\n", 2);
+        ft_putstr_fd("Error\n", 2);
         free_char_array(data);
         exit(1);     
     }
     if (ft_duplicate(data))
     {
-        ft_putstr_fd("Error2\n", 2);
+        ft_putstr_fd("Error\n", 2);
         free_char_array(data);
         exit(1);
     }
@@ -81,7 +81,7 @@ void ft_check_errors(char **data)
         long value = ft_atoi(data[i]);
         if (!(value >= INT_MIN && value <= INT_MAX))
         {
-            ft_putstr_fd("Error3\n", 2);
+            ft_putstr_fd("Error\n", 2);
            	free_char_array(data); 
             exit(1);
         }

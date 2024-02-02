@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 06:23:22 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/02 10:23:43 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/02 10:29:47 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void pa(t_stack **a, t_stack **b)
 {
     if (*b != NULL)
     {
-        push(a, a);
+        push(a,b);
         ft_putendl_fd("pa", 1);
     }
 }
