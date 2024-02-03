@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/02 10:20:26 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:49:50 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,13 @@ void				free_char_array(char **arr);
 
 // sorted algo
 void				sort_three(t_stack **a);
+void				small_sort(t_stack **a, t_stack **b);
+void				big_sort(t_stack **a,t_stack **b);
+
 
 // checker
 int					is_sorted(t_stack *stack);
-int					check_min(t_stack *stack_a);
+t_stack				*check_min(t_stack *stack);
 t_stack				*check_max(t_stack *stack);
 // init stack
 

@@ -6,32 +6,34 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:23:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/01 11:53:52 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:50:08 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
 
-int check_min(t_stack *stack_a)
+t_stack *check_min(t_stack *stack)
 {
-    int min;
+    t_stack *min;
     t_stack *tmp;
 
-    tmp = stack_a;
-    min = tmp->data;
-    while (tmp)
+    min = stack;
+    tmp = stack->next;
+    while (tmp != NULL)
     {
-        if (tmp->data < min)
-            min = tmp->data;
+        if (tmp->data < min->data)
+            min = tmp;
         tmp = tmp->next;
     }
     return (min);
 }
 t_stack *check_max(t_stack *stack)
 {
-    t_stack *max = stack;
-    t_stack *current = stack->next;
-
+    t_stack *max;
+    t_stack *current;
+    
+    max= stack;
+    current = stack->next;
     while (current != NULL)
     {
         if (current->data > max->data)
@@ -41,5 +43,5 @@ t_stack *check_max(t_stack *stack)
         current = current->next;
     }
 
-    return max;
+    return (max);
 }
