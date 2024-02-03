@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/02 10:33:16 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:46:27 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,30 +73,19 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac < 2)
-		return (0);
 	par = parsing(ac, av);
 	ft_check_errors(par);
 	a = init_stack(ft_strlen_array(par), par);
 	free_char_array(par);
-	// if (!is_sorted(a))
-	// {
-	// 	if (stack_size(a) == 2)
-	// 		sa(&a);
-	// 	else if (stack_size(a) == 3)
-	// 		sort_three(&a);
-	// }
-	// print_stack(a);
-
-	pb(&b,&a);
-	pb(&b,&a);
-	sb(&b);
-	pa(&a,&b);
-	ra(&a);
-	pa(&a,&b);
-	
-	// print_stack(b);
-	// print_stack(a);
+	if (!is_sorted(a))
+	{
+		if (stack_size(a) == 2)
+			sa(&a);
+		else if (stack_size(a) == 3)
+			sort_three(&a);
+		else
+			big_sort(&a, &b);
+	}
 	free_stack(a);
 	free_stack(b);
 	return (0);

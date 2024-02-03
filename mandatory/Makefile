@@ -6,27 +6,21 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/02 11:03:50 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/03 16:46:51 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 INCLUDE = ./mandatory/push_swap.h
 
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 CC = cc
-
-RED     = \033[1;31m
-GREEN   = \033[1;32m
-YELLOW  = \033[1;33m
-BLUE    = \033[1;34m
-CYAN    = \033[1;36m
-RESET   = \033[0m
 
 CFILES = main.c \
 		 sort_algo.c \
 		 check_sorted.c \
-		 free_stack.c
+		 free_stack.c \
+		 big_sort.c \
 
 CHELPER = ../utlis/check_min_max.c \
 		  ../utlis/ft_check_errors.c \
@@ -52,34 +46,15 @@ OBJ = $(CFILES:.c=.o) $(CHELPER:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@printf "$(RED)making.$(YELLOW)\n"
-	@sleep 0.2
-	@printf "$(RED)making..$(YELLOW)\n"
-	@sleep 0.2
-	@printf "$(RED)making...$(YELLOW)\n"
-	@sleep 0.2
-	@printf "$(RED)making...$(YELLOW)\n"
-	@sleep 0.2
-	@$(CC) $(FLAGS) -o $(NAME) $(OBJ)
-	@printf "$(GREEN)successfully !$(RESET)\n"
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+
 
 %.o: %.c $(INCLUDE)
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@printf "$(RED)Cleaning.$(YELLOW)\n"
-	@sleep 0.2
-	@printf "$(RED)Cleaning..$(YELLOW)\n"
-	@sleep 0.2
-	@printf "$(RED)Cleaning...$(YELLOW)\n"
-	@sleep 0.2
-	@printf "$(RED)Cleaning....$(YELLOW)\n"
-	@sleep 0.2
 	@rm -rf $(OBJ)
-	@printf "\n"
-	@clear
-	@printf "$(GREEN)Cleaned successfully !$(RESET)\n"
-
+	
 fclean: clean
 	@rm -rf $(NAME)
 
