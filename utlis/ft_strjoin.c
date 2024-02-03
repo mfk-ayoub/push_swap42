@@ -6,12 +6,11 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 00:59:14 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/29 03:30:34 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:58:28 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
-
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -29,7 +28,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (ft_strlen(src));
 }
-
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

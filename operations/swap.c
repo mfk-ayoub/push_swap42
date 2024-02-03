@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:57:47 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/28 11:17:23 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:54:31 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ void	swap(t_stack **stack)
 		*stack = second;
 	}
 }
+
 void	sa(t_stack **a)
 {
 	swap(a);
 	ft_putendl_fd("sa", 1);
 }
+
 void	sb(t_stack **b)
 {
 	swap(b);

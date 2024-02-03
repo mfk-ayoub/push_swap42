@@ -6,12 +6,11 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:41:08 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/01/23 03:48:28 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:57:32 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
-
 
 static bool	is_space(char c)
 {
@@ -29,8 +28,8 @@ static bool	is_space(char c)
 
 long	ft_atoi(char *str)
 {
-	long long int	ans;
-	long			result;
+	long	ans;
+	long	result;
 
 	ans = 0;
 	result = 1;

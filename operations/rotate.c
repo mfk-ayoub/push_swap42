@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:57:50 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/01 09:55:24 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:55:26 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ void	rotate(t_stack **stack)
 		(*stack)->prev = NULL;
 	}
 }
+
 void	ra(t_stack **a)
 {
 	rotate(a);
 	ft_putendl_fd("ra", 1);
 }
+
 void	rb(t_stack **b)
 {
 	rotate(b);
