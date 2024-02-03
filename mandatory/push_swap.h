@@ -77,8 +77,7 @@ void				free_char_array(char **arr);
 // sorted algo
 void				sort_three(t_stack **a);
 void				small_sort(t_stack **a, t_stack **b);
-void				big_sort(t_stack **a,t_stack **b);
-
+void				big_sort(t_stack **a, t_stack **b);
 
 // checker
 int					is_sorted(t_stack *stack);
