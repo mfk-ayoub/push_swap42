@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:39:13 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/03 17:19:35 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/04 14:31:06 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,5 @@ void	ft_check_errors(char **data)
 		free_char_array(data);
 		exit(1);
 	}
+
 }
