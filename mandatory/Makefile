@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/03 16:46:51 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/04 23:06:31 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,22 +41,32 @@ CHELPER = ../utlis/check_min_max.c \
 		  ../operations/push.c \
 		  ../operations/reverse_rotate.c
 
+
+CLR	= \033[0m
+RED		= \033[1;31m
+GREEN	= \033[1;32m
+YELLOW	= \033[1;33m
+BLUE	= \033[1;34m
+CYAN 	= \033[1;36m
+
 OBJ = $(CFILES:.c=.o) $(CHELPER:.c=.o)
 
 all: $(NAME)
-
+	@echo "\033[95m output push_swap\033[0m"
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 
 %.o: %.c $(INCLUDE)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
 	@rm -rf $(OBJ)
+	@echo "\033[95m rm *.o \033[0m"
 	
 fclean: clean
 	@rm -rf $(NAME)
+	@echo "\033[95m rm *.o and $(NAME) \033[0m"
 
 re: fclean all
 

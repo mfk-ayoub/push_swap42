@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/04 14:42:15 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/04 16:12:23 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (av[1][0] || ac == 1)
-		exit(1);
 	par = parsing(ac, av);
 	ft_check_errors(par);
 	a = init_stack(ft_strlen_array(par), par);
