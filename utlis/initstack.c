@@ -58,12 +58,12 @@ t_stack	*init_stack(int len, char **av)
 	return (stack);
 }
 
-void print_stack(t_stack *stack)
+void	print_stack(t_stack *stack)
 {
-    while (stack != NULL)
-    {
-        printf("%d ", stack->data);
-        stack = stack->next;
-    }
-    printf("\n");
+	while (stack != NULL)
+	{
+		printf("%d ", stack->data);
+		stack = stack->next;
+	}
+	printf("\n");
 }

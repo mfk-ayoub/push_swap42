@@ -6,21 +6,11 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:39:13 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/04 14:31:06 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/05 04:21:44 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	while (*s1 && (*s1 == *s2))
-	{
-		s1++;
-		s2++;
-	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
-}
 
 int	ft_all_isdigit(char **data)
 {
@@ -31,8 +21,13 @@ int	ft_all_isdigit(char **data)
 	while (data[i])
 	{
 		j = 0;
-		if (data[i][0] == '-')
-			j++;
+		if (data[i][0] == '-' || data[i][0] == '+')
+		{
+			if (!data[i][1])
+				return (0);
+			else
+				j++;
+		}
 		while (data[i][j])
 		{
 			if (!ft_isdigit(data[i][j]))
@@ -44,19 +39,35 @@ int	ft_all_isdigit(char **data)
 	return (1);
 }
 
+int	is_duplicate(char *str1, char *str2)
+{
+	int	num1;
+	int	num2;
+
+	num1 = ft_atoi(str1);
+	num2 = ft_atoi(str2);
+	if (num1 == num2)
+	{
+		return (1);
+	}
+	return (0);
+}
+
 int	ft_duplicate(char **data)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (data[i])
+	while (data[i] != NULL)
 	{
 		j = i + 1;
-		while (data[j])
+		while (data[j] != NULL)
 		{
-			if (ft_strcmp(data[i], data[j]) == 0)
+			if (is_duplicate(data[i], data[j]))
+			{
 				return (1);
+			}
 			j++;
 		}
 		i++;
@@ -66,8 +77,8 @@ int	ft_duplicate(char **data)
 
 long	ft_size(char **data)
 {
-	int				i;
-	long			value;
+	int		i;
+	long	value;
 
 	i = 0;
 	while (data[i])
@@ -100,5 +111,4 @@ void	ft_check_errors(char **data)
 		free_char_array(data);
 		exit(1);
 	}
-
 }

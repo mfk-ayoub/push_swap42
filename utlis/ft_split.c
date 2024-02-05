@@ -6,107 +6,97 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:48:36 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/03 17:06:11 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/05 23:27:51 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
 
-static size_t	ft_count_word(char const *str, char sep)
+int	check_separator(char c, char *charset)
 {
-	size_t	index;
-	size_t	count_word;
-
-	index = 0;
-	count_word = 0;
-	while (str[index] == sep && str[index] != '\0')
-		index++;
-	while (str[index] != '\0')
-	{
-		while (str[index] != sep && str[index] != '\0')
-			index++;
-		count_word++;
-		while (str[index] == sep && str[index] != '\0')
-			index++;
-	}
-	return (count_word);
-}
-
-static size_t	ft_free_memory(char **ptr, size_t pos)
-{
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (i < pos)
-		free(ptr[i++]);
-	free(ptr);
-	return (1);
-}
-
-static int	ft_copy2(char **ptr, char const *s1, size_t len, size_t index)
-{
-	size_t	i;
-
-	i = 0;
-	if (len > 0)
+	while (charset[i] != '\0')
 	{
-		ptr[index] = malloc(len + 1);
-		if (ptr[index] == NULL)
-		{
-			ft_free_memory(ptr, index);
+		if (c == charset[i])
 			return (1);
-		}
-		while (i < len)
-		{
-			ptr[index][i] = s1[i];
-			++i;
-		}
-		ptr[index][len] = '\0';
+		i++;
 	}
 	return (0);
 }
 
-static size_t	ft_copy(char **ptr, char const *s1, char sep)
+int	count_strings(char *str, char *charset)
 {
-	size_t	len;
-	size_t	index;
+	int	i;
+	int	count;
 
-	index = 0;
-	while (*s1)
+	count = 0;
+	i = 0;
+	while (str[i] != '\0')
 	{
-		len = 0;
-		while (*s1 == sep && *s1)
-			++s1;
-		while (*s1 != sep && *s1)
-		{
-			++s1;
-			++len;
-		}
-		if (ft_copy2(ptr, s1 - len, len, index) != 0)
-		{
-			return (1);
-		}
-		++index;
+		while (str[i] != '\0' && check_separator(str[i], charset))
+			i++;
+		if (str[i] != '\0')
+			count++;
+		while (str[i] != '\0' && !check_separator(str[i], charset))
+			i++;
 	}
-	return (0);
+	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+int	ft_strlen_sep(char *str, char *charset)
 {
-	char	**str;
-	size_t	words;
+	int	i;
 
-	if (s == NULL)
+	i = 0;
+	while (str[i] && !check_separator(str[i], charset))
+		i++;
+	return (i);
+}
+
+char	*ft_word(char *str, char *charset)
+{
+	int		len_word;
+	int		i;
+	char	*word;
+
+	i = 0;
+	len_word = ft_strlen_sep(str, charset);
+	word = (char *)malloc(sizeof(char) * (len_word + 1));
+	if (word == NULL)
 		return (NULL);
-	words = ft_count_word(s, c);
-	str = (char **)malloc((words + 1) * sizeof(char *));
-	if (str == NULL)
-		return (NULL);
-	if (ft_copy(str, s, c))
+	while (i < len_word)
 	{
-		free(str);
-		return (NULL);
+		word[i] = str[i];
+		i++;
 	}
-	str[words] = NULL;
-	return (str);
+	word[i] = '\0';
+	return (word);
+}
+
+char	**ft_split(char *str, char *charset)
+{
+	char	**strings;
+	int		i;
+
+	i = 0;
+	strings = (char **)malloc(sizeof(char *)
+			* (count_strings(str, charset) + 1));
+	if (strings == NULL)
+		return (NULL);
+	while (*str != '\0')
+	{
+		while (*str != '\0' && check_separator(*str, charset))
+			str++;
+		if (*str != '\0')
+		{
+			strings[i] = ft_word(str, charset);
+			i++;
+		}
+		while (*str && !check_separator(*str, charset))
+			str++;
+	}
+	strings[i] = 0;
+	return (strings);
 }
