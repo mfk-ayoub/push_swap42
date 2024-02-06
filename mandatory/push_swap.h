@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/05 23:22:25 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/06 01:30:15 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void				*ft_memcpy(void *to, const void *from, size_t n);
 char				*ft_strdup(const char *src);
 
 void				print_stack(t_stack *stack_a);
-void				bubble_sort_stack(t_stack *stack);
 
 // swap
 void				swap(t_stack **stack);
@@ -78,6 +77,7 @@ void				free_char_array(char **arr);
 void				sort_three(t_stack **a);
 void				small_sort(t_stack **a, t_stack **b);
 void				big_sort(t_stack **a, t_stack **b);
+void				simple_sort(t_stack **a, t_stack **b);
 
 // checker
 int					is_sorted(t_stack *stack);
