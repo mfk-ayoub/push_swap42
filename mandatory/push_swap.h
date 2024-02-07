@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/06 01:30:15 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/06 22:54:51 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ long				ft_atoi(char *str);
 void				ft_check_errors(char **data);
 int					ft_isdigit(int index);
 void				ft_putstr_fd(char *str, int fd);
-char				**ft_split(char *str, char *charset);
+char				**ft_split(char const *s, char c);
 char				**parsing(int ac, char **av);
 char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlcat(char *dest, const char *src, size_t dstsize);

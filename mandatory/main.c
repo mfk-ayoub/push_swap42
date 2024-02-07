@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/06 01:28:56 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/06 22:51:52 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	**parsing(int ac, char **av)
 		free(tmp);
 		i++;
 	}
-	nbrs = ft_split(str,"\t\n\v\f\r ");
+	nbrs = ft_split(str,' ');
 	free(str);
 	if (!nbrs)
 		exit(0);
