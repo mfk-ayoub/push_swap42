@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/06 22:54:51 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/09 05:54:14 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ typedef struct u_stack
 	int				data;
 	struct u_stack	*prev;
 	struct u_stack	*next;
-}					t_stack;
+	int		*tab;
+	int		*arr;
+}				t_stack;
+
+
 
 // helper
 size_t				ft_strlen(const char *str);
@@ -78,6 +82,8 @@ void				sort_three(t_stack **a);
 void				small_sort(t_stack **a, t_stack **b);
 void				big_sort(t_stack **a, t_stack **b);
 void				simple_sort(t_stack **a, t_stack **b);
+void				ft_sort_int_tab(t_stack **a);
+
 
 // checker
 int					is_sorted(t_stack *stack);

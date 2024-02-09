@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/06 06:21:16 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/07 03:39:44 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,7 @@ $(NAME): $(OBJ)
 	@echo "${CYAN}🚀....waiting....📁🚀${YELLOW}"
 	@sleep 0.1
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	@clear
 	@echo "${GREEN}\n✅ completed successfully! ✅${ENDCOLOR}"
 
 %.o: %.c $(INCLUDE)

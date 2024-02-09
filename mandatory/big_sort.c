@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:59:06 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/07 00:49:24 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/07 03:39:14 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,10 @@ void	simple_sort(t_stack **a, t_stack **b)
 			ra(a);
 			pb(a,b);
 		}	
-		else
-		{
+		else{
 			rra(a);
 			pb(a,b);
 		}
-			
 	}
 	while (*b)
 	{
