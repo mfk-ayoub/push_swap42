@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/09 05:37:40 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/09 07:17:35 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,35 @@ int	main(int ac, char **av)
 	ft_check_errors(par);
 	a = init_stack(ft_strlen_array(par), par);
 	free_char_array(par);
+	// if (!is_sorted(a))
+	// {
+	// // 	if (stack_size(a) == 2)
+	// // 		sa(&a);
+	// // 	else if (stack_size(a) == 3)
+	// // 		sort_three(&a);
+	// // 	else
+	// // 		big_sort(&a, &b);
+	// // }
+	// 	ft_sort_int_tab(&a);	
+	// }
+
+
 	if (!is_sorted(a))
 	{
-	// 	if (stack_size(a) == 2)
-	// 		sa(&a);
-	// 	else if (stack_size(a) == 3)
-	// 		sort_three(&a);
-	// 	else
-	// 		big_sort(&a, &b);
-	// }
-		ft_sort_int_tab(&a);	
+	// // 	if (stack_size(a) == 2)
+	// // 		sa(&a);
+	// // 	else if (stack_size(a) == 3)
+	// // 		sort_three(&a);
+	// // 	else
+	// // 		big_sort(&a, &b);
+	// // }
+		try(&a, &b);
+	
 	}
+	
+	printf("============\n");
 	print_stack(a);
+	print_stack(b);
 	free_stack(a);
 	free_stack(b);
 	return (0);

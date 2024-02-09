@@ -6,49 +6,84 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:59:06 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/07 03:39:14 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/09 07:18:27 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	big_sort(t_stack **a, t_stack **b)
-{
+// void	big_sort(t_stack **a, t_stack **b)
+// {
 
-	if (stack_size(*a) <= 5)
-		small_sort(a, b);
-	else
-		simple_sort(a,b);
-}
+// 	if (stack_size(*a) <= 5)
+// 		small_sort(a, b);
+// 	else
+// 		simple_sort(a,b);
+// }
 
-void	simple_sort(t_stack **a, t_stack **b)
-{
-	t_stack		*min_stack;
-	t_stack		*max_stack;
+// void	simple_sort(t_stack **a, t_stack **b)
+// {
+// 	t_stack		*min_stack;
+// 	t_stack		*max_stack;
 	
-	while (a && (*a)->next != NULL)
+// 	while (a && (*a)->next != NULL)
+// 	{
+// 		max_stack = check_max(*a);
+// 		min_stack = check_min(*a);
+// 		if (*a == min_stack)
+// 			pb(a,b);
+// 		else if (min_stack->data <= stack_size(*a) / 2)
+// 		{
+// 			ra(a);
+// 			pb(a,b);
+// 		}	
+// 		else{
+// 			rra(a);
+// 			pb(a,b);
+// 		}
+// 	}
+// 	while (*b)
+// 	{
+// 		pa(a, b);
+// 	}
+// }
+
+
+void try(t_stack **a, t_stack **b)
+{
+	int *array = array_dup(*a);
+	ft_sort_int_tab(array, stack_size(*a));
+	t_stack *tmp;
+	t_stack *node;
+	int len = stack_size(*a);
+	int flag = 0;
+	
+	tmp = *a;
+	while (tmp)
 	{
-		max_stack = check_max(*a);
-		min_stack = check_min(*a);
-		if (*a == min_stack)
-			pb(a,b);
-		else if (min_stack->data <= stack_size(*a) / 2)
+		node = tmp->next;
+		int i = 0;
+		while (i <= len / 2)
 		{
-			ra(a);
-			pb(a,b);
-		}	
-		else{
-			rra(a);
-			pb(a,b);
+			if (tmp->data == array[i])
+			{
+				flag = 1;
+			}
+			i++;
 		}
-	}
-	while (*b)
-	{
-		pa(a, b);
-	}
+		if (flag == 1)
+		{
+			// printf("PUSH\n");
+			pb(b,a);
+		}
+		else
+		{
+			// printf("ROTATE\n");
+			ra(a);
+		}
+		tmp = node;
+	}	
 }
-
-
 
 
 
