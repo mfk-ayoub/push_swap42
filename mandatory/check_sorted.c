@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:26:54 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/09 06:43:05 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/09 22:24:19 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,24 @@ int	is_sorted(t_stack *stack)
 		stack = stack->next;
 	}
 	return (1);
+}
+
+int *array_dup(t_stack *s)
+{
+	int i;
+	int len; 
+	int *array;
+	
+	i = 0;
+	len = stack_size(s);
+	array = (int *)malloc (sizeof(int) * len);
+	while (s)
+	{
+		array[i] = s->data;
+		i++;
+		s = s->next;
+	}
+	return (array);
 }
 
 void	ft_sort_int_tab(int *tab, int size)
@@ -54,20 +72,4 @@ void	ft_sort_int_tab(int *tab, int size)
 	}
 }
 
-int *array_dup(t_stack *s)
-{
-	int i;
-	int len; 
-	int *array;
-	
-	i = 0;
-	len = stack_size(s);
-	array = (int *)malloc (sizeof(int) * len);
-	while (s)
-	{
-		array[i] = s->data;
-		i++;
-		s = s->next;
-	}
-	return (array);
-}
+

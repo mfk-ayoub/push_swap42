@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/09 22:22:05 by ayel-mou         ###   ########.fr       */
+/*   Created: 2024/02/09 22:19:34 by ayel-mou          #+#    #+#             */
+/*   Updated: 2024/02/09 22:23:18 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # define EXIT_SUCCESS 0
 # define EXIT_FAILURE 1
@@ -32,6 +33,7 @@ typedef struct u_stack
 
 
 
+
 // helper
 size_t				ft_strlen(const char *str);
 long				ft_atoi(char *str);
@@ -46,9 +48,8 @@ void				ft_putendl_fd(char *s, int fd);
 void				*ft_memcpy(void *to, const void *from, size_t n);
 char				*ft_strdup(const char *src);
 
-void				print_stack(t_stack *stack_a);
 
-// swap
+//swap
 void				swap(t_stack **stack);
 void				sa(t_stack **a);
 void				sb(t_stack **b);
@@ -69,30 +70,15 @@ void				rra(t_stack **a);
 void				rrb(t_stack **b);
 void				rrr(t_stack **a, t_stack **b);
 
+
 // free
 void				free_stack_node(t_stack *node);
 void				free_stack(t_stack *stack);
 void				free_char_array(char **arr);
 
-// sorted algo
-void				sort_three(t_stack **a);
-void				small_sort(t_stack **a, t_stack **b);
-void				big_sort(t_stack **a, t_stack **b);
-void				simple_sort(t_stack **a, t_stack **b);
-void				ft_sort_int_tab(int *tab, int size);
-int 				*array_dup(t_stack *s);
-void				try(t_stack **a, t_stack **b);
-
-
-// checker
-int					is_sorted(t_stack *stack);
-t_stack				*check_min(t_stack *stack);
-t_stack				*check_max(t_stack *stack);
 // init stack
 
 int					stack_size(t_stack *stack_a);
 t_stack				*init_node(int value);
 t_stack				*init_stack(int len, char **av);
-int					stack_size(t_stack *stack_a);
-
-#endif
+int	

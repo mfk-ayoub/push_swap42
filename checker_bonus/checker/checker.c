@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/09 21:48:13 by ayel-mou         ###   ########.fr       */
+/*   Created: 2024/02/09 22:19:06 by ayel-mou          #+#    #+#             */
+/*   Updated: 2024/02/09 22:20:34 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 void	free_char_array(char **arr)
 {
@@ -77,36 +77,5 @@ int	main(int ac, char **av)
 	ft_check_errors(par);
 	a = init_stack(ft_strlen_array(par), par);
 	free_char_array(par);
-	// if (!is_sorted(a))
-	// {
-	// // 	if (stack_size(a) == 2)
-	// // 		sa(&a);
-	// // 	else if (stack_size(a) == 3)
-	// // 		sort_three(&a);
-	// // 	else
-	// // 		big_sort(&a, &b);
-	// // }
-	// 	ft_sort_int_tab(&a);	
-	// }
-
-
-	if (!is_sorted(a))
-	{
-	// // 	if (stack_size(a) == 2)
-	// // 		sa(&a);
-	// // 	else if (stack_size(a) == 3)
-	// // 		sort_three(&a);
-	// // 	else
-	// // 		big_sort(&a, &b);
-	// // }
-		try(&a, &b);
-	
-	}
-	
-	printf("============\n");
-	// print_stack(a);
-	print_stack(b);
-	free_stack(a);
-	free_stack(b);
 	return (0);
 }
