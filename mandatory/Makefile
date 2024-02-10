@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/07 03:39:44 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/09 22:47:26 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,16 +56,6 @@ OBJ = $(CFILES:.c=.o) $(CHELPER:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "${YELLOW}\n🚀✨ Start of program compilation ✨🚀${ENDCOLOR}"
-	sleep 0.1
-	@echo "${CYAN}🚀.waiting.📁🚀${YELLOW}"
-	@sleep 0.1
-	@echo "${CYAN}🚀..waiting..📁🚀${YELLOW}"
-	@sleep 0.1
-	@echo "${CYAN}🚀...waiting...📁🚀${YELLOW}"
-	@sleep 0.1
-	@echo "${CYAN}🚀....waiting....📁🚀${YELLOW}"
-	@sleep 0.1
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@clear
 	@echo "${GREEN}\n✅ completed successfully! ✅${ENDCOLOR}"
@@ -74,13 +64,6 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "${CYAN}🚀.Cleaning.🧹🚀${YELLOW}"
-	@sleep 0.1
-	@echo "${CYAN}🚀..Cleaning..🧹🚀${YELLOW}"
-	@sleep 0.1
-	@echo "${CYAN}🚀...Cleaning...🧹🚀${YELLOW}"
-	@sleep 0.1
-	@echo "${CYAN}🚀....Cleaning....🧹🚀${YELLOW}"
 	@sleep 0.1
 	@rm -rf $(OBJ)
 	@echo "${RED}🧹 ...Cleaned objetsc!... 🧹${ENDCOLOR}"

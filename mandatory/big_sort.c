@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:59:06 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/09 21:49:47 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/10 01:35:24 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,82 +47,75 @@
 // 		pa(a, b);
 // 	}
 // }
-
-
-// void try(t_stack **a, t_stack **b)
+// void	free_array(int *arr)
 // {
-// 	int *array = array_dup(*a);
-// 	ft_sort_int_tab(array, stack_size(*a));
-// 	t_stack *tmp;
-// 	t_stack *node;
-// 	//int len = stack_size(*a);
-// 	int flag = 0;
-	
-// 	tmp = *a;
-// 	while (tmp)
+// 	int	i;
+
+// 	i = 0;
+// 	while (arr[i] !=0)
 // 	{
-// 		node = tmp->next;
-// 		int i = 0;
-// 		while (i <= sizeof(array) / 2)
-// 		{
-// 			if (tmp->data == array[i])
-// 			{
-// 				flag = 1;
-// 			}
-// 			i++;
-// 		}
-// 		if (flag == 1)
-// 		{
-// 			// printf("PUSH\n");
-// 			pb(b,a);
-// 		}
-// 		else
-// 		{
-// 			// printf("ROTATE\n");
-// 			ra(a);
-// 		}
-// 		tmp = node;
+// 		free(&arr[i]);
+// 		i++;
 // 	}
-// 	while (*b != NULL)
-// 		pa(a,b);
 // }
 
-
-
-void try(t_stack **a, t_stack **b){
-	
-    int *array = array_dup(*a);
-    ft_sort_int_tab(array, stack_size(*a));
-    t_stack *tmp = *a;
+void try(t_stack **a, t_stack **b)
+{
+	int *array = array_dup(*a);
+	ft_sort_int_tab(array, stack_size(*a));
+	t_stack *tmp;
 	t_stack *node;
-    while (tmp) 
+	int len = stack_size(*a);
+	int flag = 0;
+	
+	tmp = *a;
+	while (tmp)
 	{
-        int i = 0;
-        int flag = 0;
-		node = tmp->next;
-
-        while (i < stack_size(*a) / 2)
+		if (stack_size(*a) > len / 2)
 		{
-            if (tmp->data == array[i])
+			node = tmp->next;
+			int i = 0;
+			while (i <= len / 2)
 			{
-                flag = 1;
-            }
-            i++;
-        }
-        if (flag == 1)
-		{
-            pb(b, a);
-        } else
-		{
-            ra(a);
-        }
-        tmp = node;
-    }
-    // while (*b != NULL)
-	// {	sb(b);
-    //     pa(a, b);
-    // }
-}
+				if (tmp->data == array[i])
+					flag = 1;
+				i++;
+			}
+			if (flag == 1)
+			{
+				pb(b,a);
+				flag = 0;
+			}
+			else
+				ra(a);
+			tmp = node;
+		}
+		else
+			break ;
+	}
+// 	while (*b != NULL)
+// 	{
+// 		t_stack		*max_stack;
+// 		t_stack		*min_stack;
+// 		max_stack = check_max(*b);
+// 		min_stack = check_min(*a);
+
+// 			if (*b == max_stack)
+// 			{
+// 				if ((*b)->next==max_stack)
+// 					sb(b);
+// 				pa(a,b);
+// 			}
+// 			else if (*b == min_stack)
+// 			{
+// 				rb(b);
+// 			}
+// 	}
+	  free(array);
+ }
+
+
+
 
 
 
