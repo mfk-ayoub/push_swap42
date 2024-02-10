@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:59:06 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/10 01:35:24 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/10 04:11:29 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,40 @@ void try(t_stack **a, t_stack **b)
  }
 
 
+// void try(t_stack **a, t_stack **b)
+// {
+//     int chunk_size = 20; 
+//     int len = stack_size(*a);
+//     int *array = array_dup(*a);
+//     ft_sort_int_tab(array, len);
+//     for (int chunk = 0; chunk < len / chunk_size; chunk++)
+// 	{
+//         int chunk_start = chunk * chunk_size;
+//         int chunk_end = (chunk + 1) * chunk_size;
+
+//         for (int i = chunk_start; i < chunk_end; i++) {
+//             int num = array[i];
+
+//             t_stack *tmp = *a;
+//             while (tmp) {
+//                 if (tmp->data == num)
+// 				{
+//                     if (i < len / 2)
+// 					{
+//                         pb(b, a);
+//                     } else
+// 					{
+//                         ra(a);
+//                     }
+//                     break;
+//                 }
+//                 tmp = tmp->next;
+//             }
+//         }
+//     }
+
+//     free(array);
+// }
 
 
 
