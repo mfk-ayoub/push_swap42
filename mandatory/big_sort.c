@@ -6,246 +6,106 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:59:06 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/10 04:11:29 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/11 05:21:28 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	big_sort(t_stack **a, t_stack **b)
-// {
-
-// 	if (stack_size(*a) <= 5)
-// 		small_sort(a, b);
-// 	else
-// 		simple_sort(a,b);
-// }
-
-// void	simple_sort(t_stack **a, t_stack **b)
-// {
-// 	t_stack		*min_stack;
-// 	t_stack		*max_stack;
-	
-// 	while (a && (*a)->next != NULL)
-// 	{
-// 		max_stack = check_max(*a);
-// 		min_stack = check_min(*a);
-// 		if (*a == min_stack)
-// 			pb(a,b);
-// 		else if (min_stack->data <= stack_size(*a) / 2)
-// 		{
-// 			ra(a);
-// 			pb(a,b);
-// 		}	
-// 		else{
-// 			rra(a);
-// 			pb(a,b);
-// 		}
-// 	}
-// 	while (*b)
-// 	{
-// 		pa(a, b);
-// 	}
-// }
-// void	free_array(int *arr)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (arr[i] !=0)
-// 	{
-// 		free(&arr[i]);
-// 		i++;
-// 	}
-// }
-
-void try(t_stack **a, t_stack **b)
+void	big_sort(t_stack **a, t_stack **b)
 {
-	int *array = array_dup(*a);
-	ft_sort_int_tab(array, stack_size(*a));
-	t_stack *tmp;
-	t_stack *node;
-	int len = stack_size(*a);
-	int flag = 0;
-	
-	tmp = *a;
-	while (tmp)
+
+
+	if (!is_sorted(*a))
 	{
-		if (stack_size(*a) > len / 2)
+
+		while (stack_size(*a))
 		{
-			node = tmp->next;
-			int i = 0;
-			while (i <= len / 2)
-			{
-				if (tmp->data == array[i])
-					flag = 1;
-				i++;
-			}
-			if (flag == 1)
-			{
-				pb(b,a);
-				flag = 0;
-			}
-			else
-				ra(a);
-			tmp = node;
+				try(a, b);
 		}
-		else
-			break ;
 	}
-// 	while (*b != NULL)
-// 	{
-// 		t_stack		*max_stack;
-// 		t_stack		*min_stack;
-// 		max_stack = check_max(*b);
-// 		min_stack = check_min(*a);
-
-// 			if (*b == max_stack)
-// 			{
-// 				if ((*b)->next==max_stack)
-// 					sb(b);
-// 				pa(a,b);
-// 			}
-// 			else if (*b == min_stack)
-// 			{
-// 				rb(b);
-// 			}
-// 	}
-	  free(array);
- }
-
+	while (b)
+	{
+			if ((*b)->data == check_max(*b)->data)
+				pa(a, b);
+			else 
+				rb(b);
+	}
+}
 
 // void try(t_stack **a, t_stack **b)
 // {
-//     int chunk_size = 20; 
-//     int len = stack_size(*a);
-//     int *array = array_dup(*a);
-//     ft_sort_int_tab(array, len);
-//     for (int chunk = 0; chunk < len / chunk_size; chunk++)
+// 	int *array = array_dup(*a);
+// 	ft_sort_int_tab(array, stack_size(*a));
+// 	t_stack *tmp;
+// 	t_stack *node;
+// 	int len = stack_size(*a);
+// 	int flag = 0;
+	
+// 	tmp = *a;
+// 	while (tmp)
 // 	{
-//         int chunk_start = chunk * chunk_size;
-//         int chunk_end = (chunk + 1) * chunk_size;
-
-//         for (int i = chunk_start; i < chunk_end; i++) {
-//             int num = array[i];
-
-//             t_stack *tmp = *a;
-//             while (tmp) {
-//                 if (tmp->data == num)
-// 				{
-//                     if (i < len / 2)
-// 					{
-//                         pb(b, a);
-//                     } else
-// 					{
-//                         ra(a);
-//                     }
-//                     break;
-//                 }
-//                 tmp = tmp->next;
-//             }
-//         }
-//     }
-
-//     free(array);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// void	ft_sort_four(t_stack *a, t_stack *stack_b)
-// {
-// 	int	min;
-
-// 	if (check_sort(a))
-// 		return ;
-// 	min = find_min(a);
-// 	while (a->tab[0] != min && a->tab[a->len - 1] != min)
-// 		ra(a);
-// 	if (a->tab[a->len - 1] == min)
-// 		rra(a);
-// 	if (check_sort(a))
-// 		return ;
-// 	pb(a, stack_b);
-// 	ft_sort_three(a);
-// 	pa(a, stack_b);
-// }
-
-// void	ft_sort_five(t_stack *a, t_stack **b)
-// {
-// 	int	min;
-
-// 	min = find_min(a);
-// 	while (a->tab[0] != min && a->tab[a->len - 1] != min && a->tab[a->len
-// 			- 2] != min)
-// 		ra(a);
-// 	if (a->tab[a->len - 1] == min)
-// 		rra(a);
-// 	else if (a->tab[a->len - 2] == min)
-// 	{
-// 		rra(a);
-// 		rra(a);
+// 		if (stack_size(*a) > len / 2)
+// 		{
+// 			node = tmp->next;
+// 			int i = 0;
+// 			while (i <= len / 2)
+// 			{
+// 				if (tmp->data == array[i])
+// 					flag = 1;
+// 				i++;
+// 			}
+// 			if (flag == 1)
+// 			{
+// 				pb(b,a);
+// 				flag = 0;
+// 			}
+// 			else
+// 				ra(a);
+// 			tmp = node;
+// 		}
+// 		else
+// 			break ;
 // 	}
-// 	if (check_sort(a))
-// 		return ;
-// 	pb(a, stack_b);
-// 	ft_sort_four(a, stack_b);
-// 	pa(a, stack_b);
-// }
+// 	  free(array);
+//  }
+ void try(t_stack **a, t_stack **b) {
+    // Check if stack a is NULL or empty
+    if (!a || !(*a))
+        return;
+
+    int *array = array_dup(*a);
+    if (!array)
+        return; // Allocation failed, handle appropriately
+
+    ft_sort_int_tab(array, stack_size(*a));
+    t_stack *tmp = *a;
+    int len = stack_size(*a);
+    int flag = 0;
+
+    while (tmp) {
+        if (stack_size(*a) > len / 2) {
+            t_stack *node = tmp->next;
+            int i = 0;
+            while (i <= len / 2) {
+                if (tmp->data == array[i]) {
+                    flag = 1;
+                    break; // No need to continue searching
+                }
+                i++;
+            }
+            if (flag == 1) {
+                pb(b, a);
+                flag = 0;
+            } else {
+                ra(a);
+            }
+            tmp = node;
+        } else {
+            break;
+        }
+    }
+
+    // Free dynamically allocated memory
+    free(array);
+}
