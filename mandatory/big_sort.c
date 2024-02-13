@@ -6,32 +6,39 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:59:06 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/11 05:21:28 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/13 07:05:01 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	big_sort(t_stack **a, t_stack **b)
-{
 
 
-	if (!is_sorted(*a))
-	{
+// void	big_sort(t_stack **a)
+// {
 
-		while (stack_size(*a))
-		{
-				try(a, b);
-		}
-	}
-	while (b)
-	{
-			if ((*b)->data == check_max(*b)->data)
-				pa(a, b);
-			else 
-				rb(b);
-	}
-}
+// 	sort_try(a);
+
+//     // t_stack *max_stack;
+// 	// if (!is_sorted(*a))
+// 	// {
+
+// 	// 	while (stack_size(*a))
+// 	// 	{
+// 	// 			try(a, b);
+// 	// 	}
+// 	// }
+// 	// while (b)
+// 	// {   
+//     //         max_stack = check_max(*b);
+// 	// 		if (*b == max_stack)
+// 	// 			pa(a, b);
+// 	// 		else if (*b != max_stack)
+// 	// 			rb(b);
+//     //         else
+//     //             break;
+// 	// }
+// }
 
 // void try(t_stack **a, t_stack **b)
 // {
@@ -69,43 +76,87 @@ void	big_sort(t_stack **a, t_stack **b)
 // 	}
 // 	  free(array);
 //  }
- void try(t_stack **a, t_stack **b) {
-    // Check if stack a is NULL or empty
-    if (!a || !(*a))
-        return;
 
-    int *array = array_dup(*a);
-    if (!array)
-        return; // Allocation failed, handle appropriately
+int		*party_stack(int *array, int size, int start)
+{
 
-    ft_sort_int_tab(array, stack_size(*a));
-    t_stack *tmp = *a;
-    int len = stack_size(*a);
-    int flag = 0;
-
-    while (tmp) {
-        if (stack_size(*a) > len / 2) {
-            t_stack *node = tmp->next;
-            int i = 0;
-            while (i <= len / 2) {
-                if (tmp->data == array[i]) {
-                    flag = 1;
-                    break; // No need to continue searching
-                }
-                i++;
-            }
-            if (flag == 1) {
-                pb(b, a);
-                flag = 0;
-            } else {
-                ra(a);
-            }
-            tmp = node;
-        } else {
-            break;
-        }
-    }
-
-    // Free dynamically allocated memory
-    free(array);
+	int *array_copy;
+	int x = 0;
+	array_copy = malloc(size * sizeof(int));
+	while(start < size)
+	{
+		array_copy[x] = array[start];
+		start++;
+		x++;
+	}
+	return 	 (array_copy);
 }
+void ft_titsh(t_stack **a, t_stack **b, int *test, int size)
+{
+	int i;
+	int j;
+	t_stack *tmp;
+	t_stack *node;
+	i = 0;
+	tmp = *a;
+	while (tmp)
+	{
+		node = tmp->next;
+			i = 0;
+		if ( > len / 2)
+			while (i <= size / 2)
+			{
+				if (tmp->data == test[i])
+					flag = 1;
+				i++;
+			}
+			if (flag == 1)
+			{
+				pb(b,a);
+				flag = 0;
+			}
+			else
+				ra(a);
+			
+		break ;
+		
+	}
+// 	// int i;
+// 	// b = NULL;
+// 	// a = NULL;
+// 	// size = 0;
+// 	// i = 0;
+// 	// while (i < 20)
+// 	// {
+// 	// 	printf ("%d \n", test[i]);
+// 	// 	i++;
+// 	// }
+// 	// printf ("\n");
+}
+
+
+void  sort_try(t_stack **a, t_stack **b)
+{
+	int *array = array_dup(*a);
+	int size;
+	int *x;
+	int i;
+	int inc; 
+	int start = 0;
+	b = NULL;
+	i = 0;
+	ft_sort_int_tab(array, stack_size(*a));
+	size = size_array(a);
+	inc = stack_size(*a) / size;
+	printf ("%d\n\n", stack_size(*a));
+	while(start < stack_size(*a))
+	{
+		x = party_stack(array, inc, start);
+		ft_titsh(a,b,x,inc);
+		free(x);
+		start += stack_size(*a) / size;
+		inc += stack_size(*a) / size;
+	}
+	free(array);
+}
+

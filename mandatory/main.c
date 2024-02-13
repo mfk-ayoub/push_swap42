@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/11 05:19:49 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/13 06:45:37 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,13 @@ int	main(int ac, char **av)
 	// }
 
  
-	big_sort(&a,&b);
+	sort_try(&a,&b);
 	
 	printf("============\n");
 	print_stack(b);
 	printf("============\n");
 
-	// print_stack(a);
+	print_stack(a);
 	free_stack(a);
 	free_stack(b);
 	return (0);
