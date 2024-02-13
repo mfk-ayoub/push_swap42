@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:59:06 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/13 07:05:01 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/13 07:09:26 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,45 +93,39 @@ int		*party_stack(int *array, int size, int start)
 }
 void ft_titsh(t_stack **a, t_stack **b, int *test, int size)
 {
-	int i;
-	int j;
-	t_stack *tmp;
-	t_stack *node;
-	i = 0;
-	tmp = *a;
-	while (tmp)
-	{
-		node = tmp->next;
-			i = 0;
-		if ( > len / 2)
-			while (i <= size / 2)
-			{
-				if (tmp->data == test[i])
-					flag = 1;
-				i++;
-			}
-			if (flag == 1)
-			{
-				pb(b,a);
-				flag = 0;
-			}
-			else
-				ra(a);
-			
-		break ;
-		
-	}
-// 	// int i;
-// 	// b = NULL;
-// 	// a = NULL;
-// 	// size = 0;
-// 	// i = 0;
-// 	// while (i < 20)
-// 	// {
-// 	// 	printf ("%d \n", test[i]);
-// 	// 	i++;
-// 	// }
-// 	// printf ("\n");
+    int i;
+    t_stack *tmp;
+    t_stack *node;
+    int flag = 0; // Initialize flag
+
+    tmp = *a;
+    while (tmp)
+    {
+        node = tmp->next;
+        i = 0;
+        if (stack_size(*a) > size / 2) // Corrected condition check
+        {
+            while (i <= size / 2)
+            {
+                if (tmp->data == test[i])
+                {
+                    flag = 1;
+                    break; // Exit loop if match found
+                }
+                i++;
+            }
+            if (flag == 1)
+            {
+                pb(b, a);
+                flag = 0;
+            }
+            else
+            {
+                ra(a);
+            }
+        }
+        tmp = node; // Move to the next node
+    }
 }
 
 
