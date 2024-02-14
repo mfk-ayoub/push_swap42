@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:23:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/13 05:09:35 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/14 06:03:28 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,13 @@ t_stack	*check_max(t_stack *stack)
 	return (max);
 }
 
-int	size_array(t_stack **a)
+int	size_chunk(t_stack **a)
 {
-	int size_array;
+	int size_chunk;
 
-	size_array = stack_size(*a);
-	if (size_array >= 20 && size_array <= 99)
-		return (4);
-    else if (size_array >= 100 && size_array < 500)
-        return (5);
-	else if (size_array >= 500)
-		return (11);
-    return (2);
+	size_chunk = stack_size(*a);
+	if (size_chunk < 300)
+		return (5);
+	else
+		return (9);
 }
