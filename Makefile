@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/14 00:11:20 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/15 08:39:55 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ CHELPER = ./utlis/check_min_max.c \
 		  ./utlis/ft_atoi.c \
 		  ./utlis/ft_isdigit.c \
 		  ./utlis/ft_split.c \
-		  ./utlis/stack_size.c \
 		  ./utlis/ft_strlen.c \
 		  ./utlis/ft_strlcat.c \
 		  ./utlis/ft_strjoin.c \

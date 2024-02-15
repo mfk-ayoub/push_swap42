@@ -6,11 +6,9 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:59:06 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/14 22:59:46 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/15 08:40:41 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "push_swap.h"
 
 #include "push_swap.h"
 
@@ -44,17 +42,17 @@ void sort_try(t_stack **a, t_stack **b)
     int size;
     int i;
     int chunk_size;
-    int chunk; // Declaration of chunk variable
+    int chunk; 
 
     array = array_dup(*a);
     ft_sort_int_tab(array, stack_size(*a));
-    size = stack_size(*a); // Fixed typo here, changed satck_size to stack_size
+    size = stack_size(*a);
     chunk_size = size_chunk(a);
     chunk = size / chunk_size;
     i = chunk;
     while(i <= size)
     {
-        check_and_push(a, b, chunk, i); // Passing chunk instead of array
+        check_and_push(a, b, chunk, i);
         if (!stack_size(*a))
             break ;
         i += chunk;
