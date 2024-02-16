@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   superlib.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 00:59:14 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/03 16:58:28 by ayel-mou         ###   ########.fr       */
+/*   Created: 2024/02/16 02:01:59 by ayel-mou          #+#    #+#             */
+/*   Updated: 2024/02/16 02:03:11 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,47 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		dst[len] = '\0';
 	}
 	return (ft_strlen(src));
+}
+
+char	*ft_strdup(const char *src)
+{
+	size_t	size;
+	char	*dest;
+
+	size = ft_strlen(src);
+	dest = (char *)malloc(size * sizeof(char) + 1);
+	if (dest == NULL)
+		return (0);
+	ft_memcpy(dest, src, size);
+	dest[size] = '\0';
+	return (dest);
+}
+
+size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
+{
+	size_t	len_dest;
+	size_t	len_src;
+	size_t	i;
+	size_t	j;
+
+	if (!dest && dstsize == 0)
+		return (ft_strlen(src));
+	len_dest = ft_strlen(dest);
+	len_src = ft_strlen(src);
+	i = len_dest;
+	if (dstsize <= len_dest)
+	{
+		return (dstsize + len_src);
+	}
+	j = 0;
+	while (src[j] != '\0' && i < dstsize - 1)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (len_dest + len_src);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)

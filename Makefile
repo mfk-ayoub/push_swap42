@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/15 08:39:55 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/16 02:14:19 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,25 +16,17 @@ INCLUDE = ./mandatory/push_swap.h
 CFLAGS = -Wall -Wextra -Werror -ggdb
 CC = cc
 
-CFILES = ./mandatory/main.c \
+CFILES = ./mandatory/push_swap.c \
 		 ./mandatory/sort_algo.c \
 		 ./mandatory/check_sorted.c \
-		 ./mandatory/free_stack.c \
-		 ./mandatory/big_sort.c \
 
 CHELPER = ./utlis/check_min_max.c \
 		  ./utlis/ft_check_errors.c \
-		  ./utlis/ft_putstr_fd.c \
 		  ./utlis/initstack.c \
 		  ./utlis/ft_atoi.c \
-		  ./utlis/ft_isdigit.c \
 		  ./utlis/ft_split.c \
-		  ./utlis/ft_strlen.c \
-		  ./utlis/ft_strlcat.c \
-		  ./utlis/ft_strjoin.c \
-		  ./utlis/ft_putendl_fd.c \
-		  ./utlis/ft_strdup.c \
-		  ./utlis/ft_memcpy.c \
+		  ./utlis/superlib.c \
+		  ./utlis/helpers.c \
 		  ./operations/rotate.c \
 		  ./operations/swap.c \
 		  ./operations/push.c \

@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:31:28 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/15 08:39:55 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:11:57 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,18 @@ int	stack_size(t_stack *stack)
 		tmp = tmp->next;
 	}
 	return (count);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_stack	*current;
+	t_stack	*next;
+
+	current = stack;
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
 }

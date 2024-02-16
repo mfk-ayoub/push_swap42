@@ -6,11 +6,19 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:41:08 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/03 16:57:32 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:07:33 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
+
+
+int	ft_isdigit(int index)
+{
+	if ('0' <= index && '9' >= index)
+		return (1);
+	return (0);
+}
 
 static bool	is_space(char c)
 {

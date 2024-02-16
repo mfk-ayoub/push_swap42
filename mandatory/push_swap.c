@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/14 06:05:10 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/16 01:26:56 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,21 +77,16 @@ int	main(int ac, char **av)
 	ft_check_errors(par);
 	a = init_stack(ft_strlen_array(par), par);
 	free_char_array(par);
-	// if (!is_sorted(a))
-	// {
-	// // 	if (stack_size(a) == 2)
-	// // 		sa(&a);
-	// // 	else if (stack_size(a) == 3)
-	// // 		sort_three(&a);
-	// // 	else
-	// // 		big_sort(&a, &b);
-	// // }
-	// 	ft_sort_int_tab(&a);	
-	// }
+	if (!is_sorted(a))
+	{
+		if (stack_size(a) == 2)
+			sa(&a);
+		else if (stack_size(a) == 3)
+			sort_three(&a);
+		// else
+		// 	sort_try(&a,&b);
 
- 
-	sort_try(&a,&b);
-	
+	}
 	printf("============\n");
 	print_stack(b);
 	printf("============\n");

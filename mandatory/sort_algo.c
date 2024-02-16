@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:17:38 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/04 23:15:02 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:14:28 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,23 @@ void	sort_three(t_stack **a)
 	}
 }
 
-void	small_sort(t_stack **a, t_stack **b)
-{
-	t_stack	*min;
 
-	while (stack_size(*a) > 3)
-	{
-		min = check_min(*a);
-		if (*a == min)
-		{
-			if ((*a)->next == min)
-				sa(a);
-			pb(b, a);
-		}
-		else
-		{
-			while (*a != min)
-				ra(a);
-			pb(b, a);
-		}
-	}
-	sort_three(a);
-	while (*b != NULL)
-		pa(a, b);
-}
+// void sort_try(t_stack **a, t_stack **b)
+// {
+//     int *array;
+//     int i;
+//     int chunk_size;
+//     int chunk;
+
+//     array = array_dup(*a);
+//     ft_sort_int_tab(array, stack_size(*a));
+//     chunk_size = size_chunk(a);
+//     chunk = stack_size(*a) / chunk_size;
+//     i = 1;
+//     while(i <= chunk_size + 1)
+//     {
+        
+        
+//     }
+//     free(array);
+// }
