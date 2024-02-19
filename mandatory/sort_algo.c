@@ -6,17 +6,39 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:17:38 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/19 10:47:23 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/19 12:16:17 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void cheking_and_push(t_stack **a,t_stack **b)
+int	get_index(t_stack *head, int wanted)
 {
-    
+	int	i;
 
+	i = 0;
+	while (head)
+	{
+		if (head->index == wanted)
+			return (i);
+		i++;
+		head = head->next;
+	}
+	return (-1);
 }
+void cheking_and_push(t_stack **a, t_stack **b)
+{
+    while (*b)
+    {
+        while ((*b)->index != stack_size(*b) - 1)
+            if (get_index(*b, stack_size(*b) - 1) <= stack_size(*b) / 2)
+                rb(b);
+            else
+                rrb(b);
+    }
+    pa(a, b);
+}
+
 
 void free_all(int *tab, t_helper *helper)
 {
@@ -70,8 +92,8 @@ void sort_helper(t_stack **a, int *tab, t_helper *helper)
 void sort_try(t_stack **a, t_stack **b, int *sorted_array)
 {   
     t_helper     *helper;
-    
     int          chunk_length;
+   
     helper = (t_helper *)malloc(sizeof(t_helper));
     chunk_length = get_numbre_chunk(a);
     helper->chunk_size = chunk_length;
