@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/16 01:56:49 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:37:54 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,15 @@ typedef struct u_stack
 	struct u_stack	*next;
 }				t_stack;
 
-
+typedef	struct helper
+{
+	int	chunk_size;
+	int	mid;
+	int	start;
+	int	end;
+	int	size_array;
+	
+}				t_helper;
 
 // helper
 size_t				ft_strlen(const char *str);
@@ -78,12 +86,10 @@ void				free_char_array(char **arr);
 void				sort_three(t_stack **a);
 void				ft_sort_int_tab(int *tab, int size);
 int 				*array_dup(t_stack *s);
-void				check_and_push(t_stack **a, t_stack **b,int chunk, int max);
 int					size_chunk(t_stack **a);
-int					*party_stack(int *array, int size, int start);
-void 				sort_try(t_stack **a,  t_stack **b);
-
-
+void				sort_try(t_stack **a, t_stack **b, int *sorted_array);
+int					get_numbre_chunk(t_stack **a);
+void				big_sort(t_stack **a,t_stack **b);
 // checker
 int					is_sorted(t_stack *stack);
 t_stack				*check_min(t_stack *stack);

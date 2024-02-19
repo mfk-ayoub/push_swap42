@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/16 03:56:45 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:44:56 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,18 +79,8 @@ int	main(int ac, char **av)
 	free_char_array(par);
 	if (!is_sorted(a))
 	{
-		if (stack_size(a) == 2)
-			sa(&a);
-		else if (stack_size(a) == 3)
-			sort_three(&a);
-		else
-			sort_try(&a,&b);
-
+		big_sort(&a,&b);
 	}
-	printf("============\n");
-	print_stack(b);
-	printf("============\n");
-
 	print_stack(a);
 	free_stack(a);
 	free_stack(b);

@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:23:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/14 06:03:28 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:45:52 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,20 @@ int	size_chunk(t_stack **a)
 	int size_chunk;
 
 	size_chunk = stack_size(*a);
-	if (size_chunk < 300)
+	if (size_chunk >= 150)
+		return (16);
+	if (size_chunk >= 20)
 		return (5);
 	else
-		return (9);
+		return (4);
 }
+
+int get_numbre_chunk(t_stack **a)
+{
+	int num;
+	int size_a;
+	num = size_chunk(a);
+	size_a = stack_size(*a);
+	return (size_a / num);
+}
+
