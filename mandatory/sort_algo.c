@@ -6,49 +6,44 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:17:38 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/19 12:16:17 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:06:27 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_index(t_stack *head, int wanted)
+void	free_all(int *tab, t_helper *helper)
 {
-	int	i;
+	if (tab != NULL)
+		free(tab);
+	if (helper != NULL)
+		free(helper);
+}
 
-	i = 0;
-	while (head)
+void	cheking_and_push(t_stack **a, t_stack **b, int *tab)
+{
+	t_stack	*max_b;
+	int		index;
+
+	index = stack_size(*b);
+	while (*b)
 	{
-		if (head->index == wanted)
-			return (i);
-		i++;
-		head = head->next;
+		max_b = check_max(*b);
+		if ((*b)->data == tab[index])
+		{
+			pa(a, b);
+			index--;
+		}
+		else if (find_numbre_in_stack(*b, tab[index]))
+		{
+			while ((*a)->data != tab[index - 1] && (*a)->data != tab[index])
+				rra(a);
+			index--;
+		}
 	}
-	return (-1);
-}
-void cheking_and_push(t_stack **a, t_stack **b)
-{
-    while (*b)
-    {
-        while ((*b)->index != stack_size(*b) - 1)
-            if (get_index(*b, stack_size(*b) - 1) <= stack_size(*b) / 2)
-                rb(b);
-            else
-                rrb(b);
-    }
-    pa(a, b);
 }
 
-
-void free_all(int *tab, t_helper *helper)
-{
-    if (tab != NULL)
-        free(tab);
-    if (helper != NULL)
-        free(helper);
-}
-
-void	checking_operat(t_stack **a, t_helper	*helper, int *tab)
+void	checking_operat(t_stack **a, t_helper *helper, int *tab)
 {
 	t_stack	*tmp;
 	int		oper;
@@ -68,59 +63,51 @@ void	checking_operat(t_stack **a, t_helper	*helper, int *tab)
 		rra(a);
 }
 
-void sort_helper(t_stack **a, int *tab, t_helper *helper)
+void	sort_helper(t_stack **a, int *tab, t_helper *helper)
 {
-    t_stack *check_range = *a;
+	t_stack	*range;
 
-    while (check_range && !(check_range->data >= tab[helper->start]
-                            && check_range->data <= tab[helper->end]))
-        check_range = check_range->next;
-    
-    if (!check_range)
-    {
-        helper->start -= helper->chunk_size;
-        helper->end += helper->chunk_size;
-        if (helper->start < 0)
-            helper->start = 0;
-        if (helper->end > helper->size_array - 1)
-            helper->end = helper->size_array - 1;
-    }
-    else
+	range = *a;
+	while (range && !(range->data >= tab[helper->start]
+			&& range->data <= tab[helper->end]))
+		range = range->next;
+	if (!range)
+	{
+		helper->start -= helper->chunk_size;
+		helper->end += helper->chunk_size;
+		if (helper->start < 0)
+			helper->start = 0;
+		if (helper->end > helper->size_array - 1)
+			helper->end = helper->size_array - 1;
+	}
+	else
 		checking_operat(a, helper, tab);
 }
 
-void sort_try(t_stack **a, t_stack **b, int *sorted_array)
-{   
-    t_helper     *helper;
-    int          chunk_length;
-   
-    helper = (t_helper *)malloc(sizeof(t_helper));
-    chunk_length = get_numbre_chunk(a);
-    helper->chunk_size = chunk_length;
-    helper->mid = stack_size(*a) / 2;
-    helper->start = helper->mid - chunk_length;
-    helper->end = helper->mid + chunk_length;
-    helper->size_array = stack_size(*a);
-    while (*a)
-    {
-        if ((*a)->data >= sorted_array[helper->start] && (*a)->data <= sorted_array[helper->end])
-        {
-            pb(b, a);
-            if ((*b) && (*b)->data < sorted_array[helper->mid])
-                rb(b);
-        }
-        else
-            sort_helper(a, sorted_array, helper);
-    }
-    cheking_and_push(a,b);
-   free_all(sorted_array,helper);
+void	sort_try(t_stack **a, t_stack **b, int *sorted_array)
+{
+	t_helper	*helper;
+	int			chunk_length;
+
+	helper = (t_helper *)malloc(sizeof(t_helper));
+	chunk_length = get_numbre_chunk(a);
+	helper->chunk_size = chunk_length;
+	helper->mid = stack_size(*a) / 2;
+	helper->start = helper->mid - chunk_length;
+	helper->end = helper->mid + chunk_length;
+	helper->size_array = stack_size(*a);
+	while (*a)
+	{
+		if ((*a)->data >= sorted_array[helper->start]
+			&& (*a)->data <= sorted_array[helper->end])
+		{
+			pb(b, a);
+			if ((*b) && (*b)->data < sorted_array[helper->mid])
+				rb(b);
+		}
+		else
+			sort_helper(a, sorted_array, helper);
+	}
+	cheking_and_push(a, b, sorted_array);
+	free_all(sorted_array, helper);
 }
-
-
-
-
-
-
-
-
-

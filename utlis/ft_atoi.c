@@ -12,7 +12,6 @@
 
 #include "../mandatory/push_swap.h"
 
-
 int	ft_isdigit(int index)
 {
 	if ('0' <= index && '9' >= index)

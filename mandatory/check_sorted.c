@@ -29,15 +29,15 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-int *array_dup(t_stack *s)
+int	*array_dup(t_stack *s)
 {
-	int i;
-	int len; 
-	int *array;
-	
+	int	i;
+	int	len;
+	int	*array;
+
 	i = 0;
 	len = stack_size(s);
-	array = (int *)malloc (sizeof(int) * len);
+	array = (int *)malloc(sizeof(int) * len);
 	while (s)
 	{
 		array[i] = s->data;
@@ -51,7 +51,7 @@ void	ft_sort_int_tab(int *tab, int size)
 {
 	int	i;
 	int	j;
-	int tmp;
+	int	tmp;
 
 	i = 0;
 	j = 0;

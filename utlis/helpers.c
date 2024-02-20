@@ -6,12 +6,11 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:05:29 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/16 02:06:19 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:11:42 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
-
 
 size_t	ft_strlen(const char *str)
 {

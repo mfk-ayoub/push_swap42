@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:31:28 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/16 02:11:57 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:13:25 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_stack	*init_stack(int len, char **av)
 		stack = add_stack(stack, ft_atoi(av[i]));
 		i++;
 	}
-	if  (stack == NULL)
+	if (stack == NULL)
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
@@ -72,6 +72,7 @@ void	print_stack(t_stack *stack)
 	}
 	printf("\n");
 }
+
 int	stack_size(t_stack *stack)
 {
 	int		count;
