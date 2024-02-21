@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:17:38 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/20 20:06:27 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 10:23:54 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,63 @@ void	free_all(int *tab, t_helper *helper)
 		free(helper);
 }
 
-void	cheking_and_push(t_stack **a, t_stack **b, int *tab)
+void last_checking(t_stack **a, t_stack **b,int *tab,t_helper *helper)
 {
-	t_stack	*max_b;
+
+	t_stack	*tmp;
+
+	tmp = *a;
+	if (!tmp)
+		return ;
+	while (tmp->next)
+		tmp = tmp->next;
+	if (tmp->data == tab[helper->size_array - 1]
+		|| tmp->data < (*b)->data)
+	{
+		pa(a,b);
+		ra(a);
+	}
+}
+
+void	best_move_b(t_stack **b, int n)
+{
+	t_stack	*tmp;
+	int		moves;
+
+	moves = 0;
+	tmp = *b;
+	while (tmp)
+	{
+		if (tmp->data == n)
+			break ;
+		moves++;
+		tmp = tmp->next;
+	}
+	if (moves == 0)
+		return ;
+	if (moves <= stack_size(*b) / 2)
+		rb(b);
+	else
+		rrb(b);
+}
+
+void revina(t_stack **a,int *tab , int index)
+{
+	while ((*a)->data != tab[index - 1] && (*a)->data != tab[index])
+				rra(a);
+}
+
+
+
+
+
+void	cheking_and_push(t_stack **a, t_stack **b, int *tab,t_helper *helper)
+{
 	int		index;
 
 	index = stack_size(*b);
 	while (*b)
 	{
-		max_b = check_max(*b);
 		if ((*b)->data == tab[index])
 		{
 			pa(a, b);
@@ -36,11 +84,17 @@ void	cheking_and_push(t_stack **a, t_stack **b, int *tab)
 		}
 		else if (find_numbre_in_stack(*b, tab[index]))
 		{
-			while ((*a)->data != tab[index - 1] && (*a)->data != tab[index])
-				rra(a);
+			revina(a, tab, index);
 			index--;
 		}
+		else
+		{
+			last_checking(a,b,tab,helper);
+			best_move_b(b,tab[index]);
+		}
 	}
+	while ((*a)->data > tab[0])
+		rra(a);
 }
 
 void	checking_operat(t_stack **a, t_helper *helper, int *tab)
@@ -108,6 +162,6 @@ void	sort_try(t_stack **a, t_stack **b, int *sorted_array)
 		else
 			sort_helper(a, sorted_array, helper);
 	}
-	cheking_and_push(a, b, sorted_array);
+	cheking_and_push(a, b, sorted_array,helper);
 	free_all(sorted_array, helper);
 }
