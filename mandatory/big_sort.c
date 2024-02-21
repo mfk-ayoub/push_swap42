@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:33:43 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 11:47:14 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:09:58 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,33 +25,40 @@ void	sort_three(t_stack **a)
 		sa(a);
 }
 
-void	sort_4_and_5(t_stack **a, t_stack **b)
+void	contuine(t_stack **a, t_stack **b)
 {
-	t_stack	*max_a;
-	t_stack	*min_b;
+	t_stack	*max_b;
 
-	while (stack_size(*a) > 3)
-	{
-		max_a = check_max(*a);
-		if (*a == max_a)
-			pb(b, a);
-		else if ((*a)->next == max_a)
-			ra(a);
-		else if ((*a)->next->next == max_a)
-			rra(a);
-		else
-			ra(a);
-	}
-	sort_three(a);
 	while (*b)
 	{
-		min_b = check_min(*b);
-		if (*b == min_b)
+		max_b = check_max(*b);
+		if (*b == max_b)
 			pa(a, b);
 		else
 			sb(b);
 		pa(a, b);
 	}
+}
+
+void	sort_4_and_5(t_stack **a, t_stack **b)
+{
+	t_stack	*min_a;
+
+	while (stack_size(*a) != 3)
+	{
+		min_a = check_min(*a);
+		if (*a == min_a)
+			pb(b, a);
+		else if ((*a)->next == min_a)
+		{
+			sa(a);
+			ra(a);
+		}
+		else
+			rra(a);
+	}
+	sort_three(a);
+	contuine(a, b);
 }
 
 void	big_sort(t_stack **a, t_stack **b)

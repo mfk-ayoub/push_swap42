@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 11:44:41 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:16:58 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 # include <limits.h>
 # include <stdbool.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
@@ -28,7 +27,6 @@ typedef struct u_stack
 	int				data;
 	struct u_stack	*prev;
 	struct u_stack	*next;
-	int				index;
 }					t_stack;
 
 typedef struct helper
@@ -54,8 +52,6 @@ size_t				ft_strlcat(char *dest, const char *src, size_t dstsize);
 void				ft_putendl_fd(char *s, int fd);
 void				*ft_memcpy(void *to, const void *from, size_t n);
 char				*ft_strdup(const char *src);
-
-void				print_stack(t_stack *stack_a);
 
 // swap
 void				swap(t_stack **stack);

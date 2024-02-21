@@ -58,7 +58,7 @@ char	**parsing(int ac, char **av)
 		free(tmp);
 		i++;
 	}
-	nbrs = ft_split(str,' ');
+	nbrs = ft_split(str, ' ');
 	free(str);
 	if (!nbrs)
 		exit(0);

@@ -6,10 +6,9 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:19:34 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/09 22:23:18 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:15:36 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
@@ -29,10 +28,7 @@ typedef struct u_stack
 	int				data;
 	struct u_stack	*prev;
 	struct u_stack	*next;
-}				t_stack;
-
-
-
+}					t_stack;
 
 // helper
 size_t				ft_strlen(const char *str);
@@ -48,8 +44,7 @@ void				ft_putendl_fd(char *s, int fd);
 void				*ft_memcpy(void *to, const void *from, size_t n);
 char				*ft_strdup(const char *src);
 
-
-//swap
+// swap
 void				swap(t_stack **stack);
 void				sa(t_stack **a);
 void				sb(t_stack **b);
@@ -70,7 +65,6 @@ void				rra(t_stack **a);
 void				rrb(t_stack **b);
 void				rrr(t_stack **a, t_stack **b);
 
-
 // free
 void				free_stack_node(t_stack *node);
 void				free_stack(t_stack *stack);
@@ -81,4 +75,5 @@ void				free_char_array(char **arr);
 int					stack_size(t_stack *stack_a);
 t_stack				*init_node(int value);
 t_stack				*init_stack(int len, char **av);
-int	
+
+#endif
