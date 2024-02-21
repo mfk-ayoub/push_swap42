@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/19 10:38:57 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/21 11:42:53 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CC = cc
 CFILES = ./mandatory/push_swap.c \
 		 ./mandatory/sort_algo.c \
 		 ./mandatory/check_sorted.c \
-		 ./mandatory/big_sort.c
+		 ./mandatory/big_sort.c \
+		 ./mandatory/anthor_check.c
 		 
 CHELPER = ./utlis/check_min_max.c \
 		  ./utlis/ft_check_errors.c \

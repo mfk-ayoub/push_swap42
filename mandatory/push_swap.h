@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/20 20:02:58 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:44:41 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,11 @@ void				sort_try(t_stack **a, t_stack **b, int *sorted_array);
 int					get_numbre_chunk(t_stack **a);
 void				big_sort(t_stack **a, t_stack **b);
 int					find_numbre_in_stack(t_stack *stack, int num);
+void				check_op_b(t_stack **b, int n);
+void				revina(t_stack **a, int *tab, int index);
+void				last_checking(t_stack **a, t_stack **b, int *tab,
+						t_helper *helper);
+
 // checker
 int					is_sorted(t_stack *stack);
 t_stack				*check_min(t_stack *stack);

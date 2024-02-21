@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:23:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/20 20:10:47 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:09:00 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	find_numbre_in_stack(t_stack *stack, int num)
 {
 	while (stack)
 	{
-		if ((stack)->data == num)
+		if (stack->data == num)
 			return (1);
 		stack = stack->next;
 	}
