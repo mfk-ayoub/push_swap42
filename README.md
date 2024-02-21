@@ -1,4 +1,4 @@
-# Push Swap: Sorting Using Two Stacks
+ # Push Swap: Sorting Using Two Stacks
 ![Push Swap](https://miro.medium.com/v2/resize:fit:720/format:webp/1*_qUuB7vQ716KuLp6bx3-oQ.png)
 
 ## Introduction
@@ -17,6 +17,13 @@ This project aims to implement a sorting algorithm for an array of integers usin
 Clone the repository:
 
 `git clone https://github.com/mfk-ayoub/push_swap42`
+`cd push_swap42`
+### Building the Project
+`make`
+## Run Project
+  # Example:
+
+`./push_swap 4 67 2 10 34`
 ### Commands
 
 The push swap algorithm uses a set of instructions to manipulate the stacks:
