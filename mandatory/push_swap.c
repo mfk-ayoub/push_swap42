@@ -6,11 +6,27 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 22:44:29 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 22:53:32 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	fun(char **av, int ac)
+{
+	int	i;
+
+	i = 1;
+	while (i < ac)
+	{
+		if (av[i][0] == '\0')
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+		i++;
+	}
+}
 
 void	free_char_array(char **arr)
 {
