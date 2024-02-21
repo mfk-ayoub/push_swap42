@@ -17,6 +17,7 @@ This project aims to implement a sorting algorithm for an array of integers usin
 Clone the repository:
 
 `git clone https://github.com/mfk-ayoub/push_swap42`
+-and 
 `cd push_swap42`
 ### Building the Project
 `make`
