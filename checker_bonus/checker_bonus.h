@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:19:34 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 13:15:36 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 22:48:04 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ typedef struct u_stack
 	struct u_stack	*next;
 }					t_stack;
 
+
+// get_next_line
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+
+char	*get_next_line(int fd);
+void	get_stash(char **stash, int fd);
+char	*get_one__line(char *stash);
+char	*clean_stash(char *stash);
+char	*ft_strchr(const char *s, int c);
 // helper
 size_t				ft_strlen(const char *str);
 long				ft_atoi(char *str);

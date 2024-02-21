@@ -6,11 +6,11 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:13:21 by ayel-mou          #+#    #+#             */
-/*   Updated: 2023/12/09 13:30:33 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 22:39:37 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "checker_bonus.h"
 
 void	get_stash(char **stash, int fd)
 {
