@@ -6,11 +6,20 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:41:08 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 21:18:23 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 23:43:01 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
+
+void	check_overflow(unsigned long long num)
+{
+	if (num > INT_MAX)
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
+}
 
 int	ft_isdigit(int index)
 {
@@ -35,8 +44,8 @@ static bool	is_space(char c)
 
 long long	ft_atoi(char *str)
 {
-	unsigned long int	ans;
-	long int			result;
+	long long	ans;
+	long long	result;
 
 	ans = 0;
 	result = 1;
@@ -48,14 +57,11 @@ long long	ft_atoi(char *str)
 		result *= -1;
 	if (*str == '+' || *str == '-')
 		str++;
-	if (!*str)
-		exit(1);
 	while (*str)
 	{
-		if (!ft_isdigit(*str))
-			exit(1);
 		ans = (ans * 10) + (*str - 48);
 		str++;
 	}
+	check_overflow(ans);
 	return (result * ans);
 }
