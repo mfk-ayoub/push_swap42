@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/21 11:42:53 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/21 17:39:15 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ CHELPER = ./utlis/check_min_max.c \
 		  ./operations/rotate.c \
 		  ./operations/swap.c \
 		  ./operations/push.c \
-		  ./operations/reverse_rotate.c
+		  ./operations/reverse_rotate.c\
+		  ./utlis/mosaadat.c
 
 GRAY = \033[0;90m
 RED = \033[0;91m

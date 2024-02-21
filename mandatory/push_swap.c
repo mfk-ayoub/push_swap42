@@ -6,11 +6,12 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 13:09:37 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:20:56 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	free_char_array(char **arr)
 {
@@ -73,6 +74,7 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
+	fun(av, ac);
 	par = parsing(ac, av);
 	ft_check_errors(par);
 	a = init_stack(ft_strlen_array(par), par);

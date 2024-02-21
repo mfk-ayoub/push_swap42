@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 13:16:58 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:43:07 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # include <limits.h>
 # include <stdbool.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
@@ -41,7 +42,7 @@ typedef struct helper
 
 // helper
 size_t				ft_strlen(const char *str);
-long				ft_atoi(char *str);
+long long			ft_atoi(char *str);
 void				ft_check_errors(char **data);
 int					ft_isdigit(int index);
 void				ft_putstr_fd(char *str, int fd);
@@ -89,7 +90,6 @@ int					get_numbre_chunk(t_stack **a);
 void				big_sort(t_stack **a, t_stack **b);
 int					find_numbre_in_stack(t_stack *stack, int num);
 void				check_op_b(t_stack **b, int n);
-void				revina(t_stack **a, int *tab, int index);
 void				last_checking(t_stack **a, t_stack **b, int *tab,
 						t_helper *helper);
 
@@ -97,6 +97,7 @@ void				last_checking(t_stack **a, t_stack **b, int *tab,
 int					is_sorted(t_stack *stack);
 t_stack				*check_min(t_stack *stack);
 t_stack				*check_max(t_stack *stack);
+void				fun(char **av, int ac);
 // init stack
 
 int					stack_size(t_stack *stack_a);

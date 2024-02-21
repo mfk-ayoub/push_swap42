@@ -6,16 +6,14 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:17:38 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 11:42:14 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:42:32 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_all(int *tab, t_helper *helper)
+void	free_all(t_helper *helper)
 {
-	if (tab != NULL)
-		free(tab);
 	if (helper != NULL)
 		free(helper);
 }
@@ -34,7 +32,8 @@ void	cheking_and_push(t_stack **a, t_stack **b, int *tab, t_helper *helper)
 		}
 		else if (find_numbre_in_stack(*a, tab[index]))
 		{
-			revina(a, tab, index);
+			while ((*a)->data != tab[index - 1] && (*a)->data != tab[index])
+				rra(a);
 			index--;
 		}
 		else
@@ -113,5 +112,5 @@ void	sort_try(t_stack **a, t_stack **b, int *sorted_array)
 			sort_helper(a, sorted_array, helper);
 	}
 	cheking_and_push(a, b, sorted_array, helper);
-	free_all(sorted_array, helper);
+	free_all(helper);
 }

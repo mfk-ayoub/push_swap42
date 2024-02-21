@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:41:31 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 11:42:32 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:42:57 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,4 @@ void	last_checking(t_stack **a, t_stack **b, int *tab, t_helper *helper)
 		pa(a, b);
 		ra(a);
 	}
-}
-
-void	revina(t_stack **a, int *tab, int index)
-{
-	while ((*a)->data != tab[index - 1] && (*a)->data != tab[index])
-		rra(a);
 }

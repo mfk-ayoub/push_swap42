@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:39:13 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/16 01:05:23 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:43:34 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int	ft_duplicate(char **data)
 
 long	ft_size(char **data)
 {
-	int		i;
-	long	value;
+	unsigned long int	i;
+	long int			value;
 
 	i = 0;
 	while (data[i])

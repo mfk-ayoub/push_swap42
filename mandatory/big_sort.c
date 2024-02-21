@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:33:43 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 13:09:58 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/21 17:11:00 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,5 @@ void	big_sort(t_stack **a, t_stack **b)
 		sort_4_and_5(a, b);
 	else
 		sort_try(a, b, sorted_array);
+	free(sorted_array);
 }
