@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:19:34 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/22 02:49:40 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 06:31:54 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,22 @@ typedef struct u_stack
 #  define BUFFER_SIZE 1
 # endif
 
+
+typedef struct s_list
+{
+	char			*content;
+	struct s_list	*next;
+}					t_list;
+
 char				*get_next_line(int fd);
-void				get_stash(char **stash, int fd);
-char				*get_one_line(char *stash);
-char				*clean_stash(char *stash);
-char				*ft_strchr(const char *s, int c);
+void				list_maker(t_list **list, int fd);
+void				add_to_list(t_list **list, char *buf);
+char				*get_the_line(t_list *list);
+void				clist(t_list **list);
+void				dealloc(t_list **list, t_list *clean_node, char *buf);
+void				copy_the_list(t_list *list, char *the_line);
+int					llist(t_list *list);
+int					newline_checker(t_list *list);
 // helper
 size_t				ft_strlen(const char *str);
 long				ft_atoi(char *str);
@@ -89,6 +100,7 @@ t_stack				*init_stack(int len, char **av);
 char				*ft_strnstr(const char *big, const char *little, size_t len);
 int					ft_strcmp(char *s1, char *s2);
 int					is_sorted(t_stack *stack);
+void				fun(char **av, int ac);
 
 
 #endif

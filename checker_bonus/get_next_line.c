@@ -6,113 +6,107 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:13:21 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/22 02:45:52 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 06:12:40 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-void	get_stash(char **stash, int fd)
+void	clist(t_list **list)
 {
-	char	*buffer;
-	int		bytes_read;
-
-	while (!ft_strchr(*stash, '\n'))
-	{
-		buffer = malloc(((size_t)BUFFER_SIZE + 1) * sizeof(char));
-		if (buffer == NULL)
-			return ;
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read == 0)
-		{
-			free(buffer);
-			return ;
-		}
-		if (bytes_read == -1)
-		{
-			free(buffer);
-			free(*stash);
-			*stash = NULL;
-			return ;
-		}
-		buffer[bytes_read] = '\0';
-		*stash = ft_strjoin(*stash, buffer);
-		free(buffer);
-	}
-}
-
-char	*get_one_line(char *stash)
-{
-	char	*line;
-	int		index;
-
-	line = NULL;
-	index = 0;
-	if (!stash || !ft_strlen(stash))
-		return (NULL);
-	while (stash[index] && stash[index] != '\n')
-		index++;
-	if (stash[index] && stash[index] == '\n')
-		index++;
-	line = malloc((index + 1) * sizeof(char));
-	if (line == NULL)
-		return (NULL);
-	index = -1;
-	while (stash[++index] && stash[index] != '\n')
-		line[index] = stash[index];
-	if (stash[index] && stash[index] == '\n')
-	{
-		line[index] = '\n';
-		index++;
-	}
-	line[index] = '\0';
-	return (line);
-}
-
-char	*clean_stash(char *stash)
-{
-	char	*buffer;
+	t_list	*last_node;
+	t_list	*clean_node;
 	int		i;
-	int		j;
+	int		k;
+	char	*buf;
 
-	i = 0;
-	j = 0;
-	while (stash[i] && stash[i] != '\n')
-		i++;
-	if (stash[i] && stash[i] == '\n')
-		i++;
-	buffer = malloc(((ft_strlen(stash) - i) + 1) * sizeof(char));
-	if (buffer == NULL)
-		return (NULL);
-	while (stash[i])
+	buf = malloc(BUFFER_SIZE + 1);
+	clean_node = malloc(sizeof(t_list));
+	if (NULL == buf || NULL == clean_node)
+		return ;
+	last_node = *list;
+	while (last_node->next)
 	{
-		buffer[j] = stash[i];
-		j++;
-		i++;
+		last_node = last_node->next;
 	}
-	buffer[j] = '\0';
-	free(stash);
-	return (buffer);
+	i = 0;
+	k = 0;
+	while (last_node->content[i] && last_node->content[i] != '\n')
+		++i;
+	while (last_node->content[i] && last_node->content[++i])
+		buf[k++] = last_node->content[i];
+	buf[k] = '\0';
+	clean_node->content = buf;
+	clean_node->next = NULL;
+	dealloc(list, clean_node, buf);
+}
+
+char	*get_the_line(t_list *list)
+{
+	int		l;
+	char	*the_line;
+
+	l = llist(list);
+	the_line = malloc(l + 1);
+	if (the_line == NULL)
+		return (NULL);
+	copy_the_list(list, the_line);
+	return (the_line);
+}
+
+void	add_to_list(t_list **list, char *buf)
+{
+	t_list	*new_node;
+	t_list	*last_node;
+
+	new_node = malloc(sizeof(t_list));
+	new_node->content = buf;
+	new_node->next = NULL;
+	if (*list == NULL)
+		*list = new_node;
+	else
+	{
+		last_node = *list;
+		while (last_node->next != NULL)
+		{
+			last_node = last_node->next;
+		}
+		last_node->next = new_node;
+	}
+}
+
+void	list_maker(t_list **list, int fd)
+{
+	ssize_t		r;
+	char		*buf;
+
+	while (!newline_checker(*list))
+	{
+		buf = malloc((size_t)BUFFER_SIZE + 1);
+		if (buf == NULL)
+			return ;
+		r = read(fd, buf, BUFFER_SIZE);
+		if (r <= 0)
+		{
+			free(buf);
+			return ;
+		}
+		buf[r] = '\0';
+		add_to_list(list, buf);
+	}
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
-	char		*line;
+	static t_list	*list;
+	char			*the_line;
 
-	line = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	get_stash(&stash, fd);
-	if (stash == NULL)
+	list_maker(&list, fd);
+	if (list == NULL)
 		return (NULL);
-	line = get_one_line(stash);
-	if (line == NULL)
-	{
-		free(stash);
-		stash = NULL;
-		return (NULL);
-	}
-	stash = clean_stash(stash);
-	return (line);
+	the_line = get_the_line(list);
+	clist(&list);
+	return (the_line);
 }
