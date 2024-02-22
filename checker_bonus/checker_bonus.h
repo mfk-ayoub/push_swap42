@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:19:34 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 22:48:04 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 02:49:40 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct u_stack
 
 char				*get_next_line(int fd);
 void				get_stash(char **stash, int fd);
-char				*get_one__line(char *stash);
+char				*get_one_line(char *stash);
 char				*clean_stash(char *stash);
 char				*ft_strchr(const char *s, int c);
 // helper
@@ -85,5 +85,10 @@ void				free_char_array(char **arr);
 int					stack_size(t_stack *stack_a);
 t_stack				*init_node(int value);
 t_stack				*init_stack(int len, char **av);
+
+char				*ft_strnstr(const char *big, const char *little, size_t len);
+int					ft_strcmp(char *s1, char *s2);
+int					is_sorted(t_stack *stack);
+
 
 #endif

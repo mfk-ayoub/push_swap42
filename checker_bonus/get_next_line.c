@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:13:21 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 23:24:18 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 02:45:52 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	get_stash(char **stash, int fd)
 	}
 }
 
-char	*get_one__line(char *stash)
+char	*get_one_line(char *stash)
 {
 	char	*line;
 	int		index;
@@ -106,7 +106,7 @@ char	*get_next_line(int fd)
 	get_stash(&stash, fd);
 	if (stash == NULL)
 		return (NULL);
-	line = get_one__line(stash);
+	line = get_one_line(stash);
 	if (line == NULL)
 	{
 		free(stash);

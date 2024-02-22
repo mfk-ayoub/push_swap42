@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/21 22:53:43 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/22 02:51:34 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ CHELPER = ./utlis/check_min_max.c \
 
 C_BONUS = ./checker_bonus/check_utlis.c \
 		  ./checker_bonus/checker.c \
-		  ./checker_bonus/get_next_line.c
+		  ./checker_bonus/get_next_line.c \
+		  ./mandatory/check_sorted.c \
 
 GRAY = \033[0;90m
 RED = \033[0;91m

@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 22:17:42 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 22:57:13 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 02:35:28 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,30 @@ char	*ft_strchr(const char *s, int c)
 	if (ch == '\0')
 		return ((char *)s);
 	return (NULL);
+}
+
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	if (!big && !len)
+		return (NULL);
+	if (little[0] == '\0' || little == big)
+		return ((char *)big);
+	while (big[i] != '\0')
+	{
+		j = 0;
+		while (big[i + j] == little[j] && (i + j) < len)
+		{
+			if (big[i + j] == '\0' || little[j] == '\0')
+				return ((char *)&big[i]);
+			j++;
+		}
+		if (little[j] == '\0')
+			return ((char *)(big + i));
+		i++;
+	}
+	return (0);
 }
