@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:19:34 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/22 06:31:54 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 06:59:36 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int					llist(t_list *list);
 int					newline_checker(t_list *list);
 // helper
 size_t				ft_strlen(const char *str);
-long				ft_atoi(char *str);
+long long			ft_atoi(char *str);
 void				ft_check_errors(char **data);
 int					ft_isdigit(int index);
 void				ft_putstr_fd(char *str, int fd);

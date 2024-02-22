@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/22 06:14:38 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/22 06:47:48 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ BONUS= checker
 INCLUDE = ./mandatory/push_swap.h \
 		  ./checker_bonus/checker_bonus.h
 				
-CFLAGS = -Wall -Wextra -Werror -ggdb
+CFLAGS = -Wall -Wextra -Werror -ggdb 
 CC = cc
 
 CFILES = ./mandatory/push_swap.c \
