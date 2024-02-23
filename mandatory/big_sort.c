@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:33:43 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/22 23:33:04 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/23 15:09:57 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,6 @@ void	sort_three(t_stack **a)
 		sa(a, 1);
 }
 
-void	contuine(t_stack **a, t_stack **b)
-{
-	t_stack	*max_b;
-
-	while (*b)
-	{
-		max_b = check_max(*b);
-		if (*b == max_b)
-			pa(a, b, 1);
-		else
-			sb(b, 1);
-		pa(a, b, 1);
-	}
-}
-
 void	sort_4_and_5(t_stack **a, t_stack **b)
 {
 	t_stack	*min_a;
@@ -49,16 +34,14 @@ void	sort_4_and_5(t_stack **a, t_stack **b)
 		min_a = check_min(*a);
 		if (*a == min_a)
 			pb(b, a, 1);
-		else if ((*a)->next == min_a)
-		{
-			sa(a, 1);
-			ra(a, 1);
-		}
 		else
-			rra(a, 1);
+			ra(a, 1);
 	}
 	sort_three(a);
-	contuine(a, b);
+	while (*b)
+	{
+		pa(a, b, 1);
+	}
 }
 
 void	big_sort(t_stack **a, t_stack **b)
@@ -72,7 +55,9 @@ void	big_sort(t_stack **a, t_stack **b)
 	else if (stack_size(*a) == 3)
 		sort_three(a);
 	else if (stack_size(*a) >= 4 && stack_size(*a) <= 5)
+	{
 		sort_4_and_5(a, b);
+	}
 	else
 		sort_try(a, b, sorted_array);
 	free(sorted_array);
