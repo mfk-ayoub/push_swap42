@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/23 01:49:59 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/23 03:50:26 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ fclean: clean
 	@rm -rf $(NAME) $(BONUS)
 	@echo "${RED}🧹 ...Cleaned ALL... 🧹${ENDCOLOR}"
 
-re: fclean all
+re: fclean all bonus
 
 .PHONY: all clean fclean re
 .SILENT:

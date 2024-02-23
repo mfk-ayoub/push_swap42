@@ -6,13 +6,13 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:41:08 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/23 03:35:31 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/23 03:45:29 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
 
-int	check_overflow(unsigned long long num)
+int	check_overflow(long long num)
 {
 	if (num > INT_MAX)
 	{
