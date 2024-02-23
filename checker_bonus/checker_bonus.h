@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:19:34 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/22 06:59:36 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/23 01:49:41 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct u_stack
 #  define BUFFER_SIZE 1
 # endif
 
-
 typedef struct s_list
 {
 	char			*content;
@@ -54,7 +53,7 @@ int					newline_checker(t_list *list);
 // helper
 size_t				ft_strlen(const char *str);
 long long			ft_atoi(char *str);
-void				ft_check_errors(char **data);
+int					ft_check_errors(char **data);
 int					ft_isdigit(int index);
 void				ft_putstr_fd(char *str, int fd);
 char				**ft_split(char const *s, char c);
@@ -67,24 +66,24 @@ char				*ft_strdup(const char *src);
 
 // swap
 void				swap(t_stack **stack);
-void				sa(t_stack **a);
-void				sb(t_stack **b);
-void				ss(t_stack **a, t_stack **b);
+void				sa(t_stack **a, int num);
+void				sb(t_stack **b, int num);
+void				ss(t_stack **a, t_stack **b, int num);
 // rotate
-void				ra(t_stack **a);
+void				ra(t_stack **a, int num);
 void				rotate(t_stack **stack);
-void				rb(t_stack **b);
-void				rr(t_stack **a, t_stack **b);
+void				rb(t_stack **b, int num);
+void				rr(t_stack **a, t_stack **b, int num);
 // push
-void				pb(t_stack **b, t_stack **a);
-void				pa(t_stack **a, t_stack **b);
+void				pb(t_stack **b, t_stack **a, int num);
+void				pa(t_stack **a, t_stack **b, int num);
 void				push(t_stack **dst, t_stack **src);
 
 // reverse rotate
 void				reverse_rotate(t_stack **stack);
-void				rra(t_stack **a);
-void				rrb(t_stack **b);
-void				rrr(t_stack **a, t_stack **b);
+void				rra(t_stack **a, int num);
+void				rrb(t_stack **b, int num);
+void				rrr(t_stack **a, t_stack **b, int num);
 
 // free
 void				free_stack_node(t_stack *node);
@@ -97,10 +96,15 @@ int					stack_size(t_stack *stack_a);
 t_stack				*init_node(int value);
 t_stack				*init_stack(int len, char **av);
 
-char				*ft_strnstr(const char *big, const char *little, size_t len);
+char				*ft_strnstr(const char *big, const char *little,
+						size_t len);
 int					ft_strcmp(char *s1, char *s2);
 int					is_sorted(t_stack *stack);
-void				fun(char **av, int ac);
-
+void				fun(char **av);
+int					check_overflow(unsigned long long num);
+void				check_ove(char **data);
+void				check_op(t_stack **a, t_stack **b, char *op);
+void				compare(t_stack **a, t_stack **b, char *op);
+void				read_op(t_stack **a, t_stack **b);
 
 #endif

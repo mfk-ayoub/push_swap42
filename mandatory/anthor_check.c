@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:41:31 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 21:42:57 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:30:07 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	check_op_b(t_stack **b, int n)
 	if (op == 0)
 		return ;
 	if (op <= stack_size(*b) / 2)
-		rb(b);
+		rb(b, 1);
 	else
-		rrb(b);
+		rrb(b, 1);
 }
 
 void	last_checking(t_stack **a, t_stack **b, int *tab, t_helper *helper)
@@ -45,7 +45,7 @@ void	last_checking(t_stack **a, t_stack **b, int *tab, t_helper *helper)
 		tmp = tmp->next;
 	if (tmp->data == tab[helper->size_array - 1] || tmp->data < (*b)->data)
 	{
-		pa(a, b);
-		ra(a);
+		pa(a, b, 1);
+		ra(a, 1);
 	}
 }

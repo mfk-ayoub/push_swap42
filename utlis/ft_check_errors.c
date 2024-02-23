@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:39:13 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 20:43:34 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:57:20 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,24 +91,20 @@ long	ft_size(char **data)
 	return (0);
 }
 
-void	ft_check_errors(char **data)
+int	ft_check_errors(char **data)
 {
 	if (!ft_all_isdigit(data))
 	{
-		ft_putstr_fd("Error\n", 2);
-		free_char_array(data);
-		exit(1);
+		return (1);
 	}
 	if (ft_duplicate(data))
 	{
-		ft_putstr_fd("Error\n", 2);
-		free_char_array(data);
-		exit(1);
+		return (1);
 	}
 	if (ft_size(data))
 	{
-		ft_putstr_fd("Error\n", 2);
-		free_char_array(data);
-		exit(1);
+		return (1);
 	}
+	else
+		return (0);
 }

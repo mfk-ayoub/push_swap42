@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/22 06:47:48 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/23 01:49:59 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ C_BONUS = ./checker_bonus/check_utlis.c \
 		  ./checker_bonus/get_next_line.c \
 		  ./checker_bonus/get_next_line_utlis.c \
 		  ./mandatory/check_sorted.c \
+		  ./checker_bonus/operting.c \
 
 GRAY = \033[0;90m
 RED = \033[0;91m

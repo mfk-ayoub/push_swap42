@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/22 02:49:29 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/23 00:58:09 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct helper
 // helper
 size_t				ft_strlen(const char *str);
 long long			ft_atoi(char *str);
-void				ft_check_errors(char **data);
+int					ft_check_errors(char **data);
 int					ft_isdigit(int index);
 void				ft_putstr_fd(char *str, int fd);
 char				**ft_split(char const *s, char c);
@@ -56,24 +56,24 @@ char				*ft_strdup(const char *src);
 
 // swap
 void				swap(t_stack **stack);
-void				sa(t_stack **a);
-void				sb(t_stack **b);
-void				ss(t_stack **a, t_stack **b);
+void				sa(t_stack **a, int num);
+void				sb(t_stack **b, int num);
+void				ss(t_stack **a, t_stack **b, int num);
 // rotate
-void				ra(t_stack **a);
+void				ra(t_stack **a, int num);
 void				rotate(t_stack **stack);
-void				rb(t_stack **b);
-void				rr(t_stack **a, t_stack **b);
+void				rb(t_stack **b, int num);
+void				rr(t_stack **a, t_stack **b, int num);
 // push
-void				pb(t_stack **b, t_stack **a);
-void				pa(t_stack **a, t_stack **b);
+void				pb(t_stack **b, t_stack **a, int num);
+void				pa(t_stack **a, t_stack **b, int num);
 void				push(t_stack **dst, t_stack **src);
 
 // reverse rotate
 void				reverse_rotate(t_stack **stack);
-void				rra(t_stack **a);
-void				rrb(t_stack **b);
-void				rrr(t_stack **a, t_stack **b);
+void				rra(t_stack **a, int num);
+void				rrb(t_stack **b, int num);
+void				rrr(t_stack **a, t_stack **b, int num);
 
 // free
 void				free_stack_node(t_stack *node);
@@ -97,13 +97,14 @@ void				last_checking(t_stack **a, t_stack **b, int *tab,
 int					is_sorted(t_stack *stack);
 t_stack				*check_min(t_stack *stack);
 t_stack				*check_max(t_stack *stack);
-void				fun(char **av, int ac);
+void				fun(char **av);
+int					check_overflow(unsigned long long num);
+void				check_ove(char **data);
 // init stack
 
 int					stack_size(t_stack *stack_a);
 t_stack				*init_node(int value);
 t_stack				*init_stack(int len, char **av);
 int					stack_size(t_stack *stack_a);
-
 
 #endif

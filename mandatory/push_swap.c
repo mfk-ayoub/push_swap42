@@ -6,25 +6,35 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 22:58:41 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 22:53:32 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/23 03:35:47 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fun(char **av, int ac)
+void	fun(char **av)
 {
 	int	i;
+	int	j;
+	int	flag;
 
 	i = 1;
-	while (i < ac)
+	while (av[i])
 	{
-		if (av[i][0] == '\0')
+		j = 0;
+		flag = 0;
+		while (av[i][j])
+		{
+			if (ft_isdigit(av[i][j]))
+				flag = 1;
+			j++;
+		}
+		i++;
+		if (flag == 0)
 		{
 			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
-		i++;
 	}
 }
 
@@ -89,9 +99,15 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	fun(av, ac);
+	fun(av);
 	par = parsing(ac, av);
-	ft_check_errors(par);
+	if (ft_check_errors(par))
+	{
+		ft_putendl_fd("Error", 2);
+		free_char_array(par);
+		exit(1);
+	}
+	// check_ove(par);
 	a = init_stack(ft_strlen_array(par), par);
 	free_char_array(par);
 	if (!is_sorted(a))

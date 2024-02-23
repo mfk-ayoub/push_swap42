@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:57:47 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/03 16:54:31 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:35:56 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,24 @@ void	swap(t_stack **stack)
 	}
 }
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int num)
 {
 	swap(a);
-	ft_putendl_fd("sa", 1);
+	if (num == 1)
+		ft_putendl_fd("sa", 1);
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int num)
 {
 	swap(b);
-	ft_putendl_fd("sb", 1);
+	if (num == 1)
+		ft_putendl_fd("sb", 1);
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, int num)
 {
 	swap(a);
 	swap(b);
-	ft_putendl_fd("ss", 1);
+	if (num == 1)
+		ft_putendl_fd("ss", 1);
 }

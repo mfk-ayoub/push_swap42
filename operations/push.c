@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 06:23:22 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/03 16:54:49 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:35:27 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,22 @@ void	push(t_stack **dst, t_stack **src)
 	*dst = push_to_pop;
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, int num)
 {
 	if (*b != NULL)
 	{
 		push(a, b);
-		ft_putendl_fd("pa", 1);
+		if (num == 1)
+			ft_putendl_fd("pa", 1);
 	}
 }
 
-void	pb(t_stack **b, t_stack **a)
+void	pb(t_stack **b, t_stack **a, int num)
 {
 	if (*a != NULL)
 	{
 		push(b, a);
-		ft_putendl_fd("pb", 1);
+		if (num == 1)
+			ft_putendl_fd("pb", 1);
 	}
 }

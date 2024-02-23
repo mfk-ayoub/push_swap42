@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:33:43 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 17:11:00 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:33:04 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	sort_three(t_stack **a)
 
 	max = check_max(*a);
 	if (*a == max)
-		ra(a);
+		ra(a, 1);
 	else if ((*a)->next == max)
-		rra(a);
+		rra(a, 1);
 	if ((*a)->data > (*a)->next->data)
-		sa(a);
+		sa(a, 1);
 }
 
 void	contuine(t_stack **a, t_stack **b)
@@ -33,10 +33,10 @@ void	contuine(t_stack **a, t_stack **b)
 	{
 		max_b = check_max(*b);
 		if (*b == max_b)
-			pa(a, b);
+			pa(a, b, 1);
 		else
-			sb(b);
-		pa(a, b);
+			sb(b, 1);
+		pa(a, b, 1);
 	}
 }
 
@@ -48,14 +48,14 @@ void	sort_4_and_5(t_stack **a, t_stack **b)
 	{
 		min_a = check_min(*a);
 		if (*a == min_a)
-			pb(b, a);
+			pb(b, a, 1);
 		else if ((*a)->next == min_a)
 		{
-			sa(a);
-			ra(a);
+			sa(a, 1);
+			ra(a, 1);
 		}
 		else
-			rra(a);
+			rra(a, 1);
 	}
 	sort_three(a);
 	contuine(a, b);
@@ -68,7 +68,7 @@ void	big_sort(t_stack **a, t_stack **b)
 	sorted_array = array_dup(*a);
 	ft_sort_int_tab(sorted_array, stack_size(*a));
 	if (stack_size(*a) == 2)
-		sa(a);
+		sa(a, 1);
 	else if (stack_size(*a) == 3)
 		sort_three(a);
 	else if (stack_size(*a) >= 4 && stack_size(*a) <= 5)

@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:17:38 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/21 21:42:32 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:31:10 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	cheking_and_push(t_stack **a, t_stack **b, int *tab, t_helper *helper)
 	{
 		if ((*b)->data == tab[index])
 		{
-			pa(a, b);
+			pa(a, b, 1);
 			index--;
 		}
 		else if (find_numbre_in_stack(*a, tab[index]))
 		{
 			while ((*a)->data != tab[index - 1] && (*a)->data != tab[index])
-				rra(a);
+				rra(a, 1);
 			index--;
 		}
 		else
@@ -43,7 +43,7 @@ void	cheking_and_push(t_stack **a, t_stack **b, int *tab, t_helper *helper)
 		}
 	}
 	while ((*a)->data > tab[0])
-		rra(a);
+		rra(a, 1);
 }
 
 void	checking_operat(t_stack **a, t_helper *helper, int *tab)
@@ -61,9 +61,9 @@ void	checking_operat(t_stack **a, t_helper *helper, int *tab)
 		tmp = tmp->next;
 	}
 	if (oper <= (stack_size(*a) / 2))
-		ra(a);
+		ra(a, 1);
 	else
-		rra(a);
+		rra(a, 1);
 }
 
 void	sort_helper(t_stack **a, int *tab, t_helper *helper)
@@ -104,9 +104,9 @@ void	sort_try(t_stack **a, t_stack **b, int *sorted_array)
 		if ((*a)->data >= sorted_array[helper->start]
 			&& (*a)->data <= sorted_array[helper->end])
 		{
-			pb(b, a);
+			pb(b, a, 1);
 			if ((*b) && (*b)->data < sorted_array[helper->mid])
-				rb(b);
+				rb(b, 1);
 		}
 		else
 			sort_helper(a, sorted_array, helper);
