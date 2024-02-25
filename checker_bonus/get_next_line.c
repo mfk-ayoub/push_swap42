@@ -77,8 +77,8 @@ void	add_to_list(t_list **list, char *buf)
 
 void	list_maker(t_list **list, int fd)
 {
-	ssize_t		r;
-	char		*buf;
+	ssize_t	r;
+	char	*buf;
 
 	while (!newline_checker(*list))
 	{

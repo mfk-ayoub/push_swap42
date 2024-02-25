@@ -6,25 +6,38 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 01:47:46 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/23 03:17:09 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/25 20:02:36 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-void	check_op(t_stack **a, t_stack **b, char *op)
+int	ft_strcmp(char *s1, char *s2)
 {
-	char	*oper;
+	int	i;
 
-	oper = "sa\nsb\nss\npa\npb\nra\nrb\nrr\nrra\nrrb\nrrr\n";
-	while (!ft_strnstr(oper, op, ft_strlen(oper)))
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 	{
-		if (*a != NULL)
-			free_stack(*a);
-		if (*b != NULL)
-			free_stack(*b);
-		ft_putstr_fd("Error\n", 2);
+		i++;
+	}
+	return (s1[i] - s2[i]);
+}
+
+void	compare_1(t_stack **a, t_stack **b, char *op)
+{
+	if (!ft_strcmp(op, "pb\n"))
+		pb(b, a, 0);
+	else if (!ft_strcmp(op, "rb\n"))
+		rb(b, 0);
+	else if (!ft_strcmp(op, "rrb\n"))
+		rrb(b, 0);
+	else
+	{
+		ft_putendl_fd("Error", 2);
 		free(op);
+		free_stack(*a);
+		free_stack(*b);
 		exit(1);
 	}
 }
@@ -47,12 +60,8 @@ void	compare(t_stack **a, t_stack **b, char *op)
 		rr(a, b, 0);
 	else if (!ft_strcmp(op, "pa\n"))
 		pa(a, b, 0);
-	else if (!ft_strcmp(op, "pb\n"))
-		pb(b, a, 0);
-	else if (!ft_strcmp(op, "rb\n"))
-		rb(b, 0);
-	else if (!ft_strcmp(op, "rrb\n"))
-		rrb(b, 0);
+	else
+		compare_1(a, b, op);
 }
 
 void	read_op(t_stack **a, t_stack **b)
@@ -62,7 +71,6 @@ void	read_op(t_stack **a, t_stack **b)
 	rop = get_next_line(0);
 	while (rop != NULL)
 	{
-		check_op(a, b, rop);
 		compare(a, b, rop);
 		free(rop);
 		rop = get_next_line(0);

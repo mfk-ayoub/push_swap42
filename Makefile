@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/23 03:50:26 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/25 20:03:13 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,7 @@ CHELPER = ./utlis/check_min_max.c \
 		  ./operations/push.c \
 		  ./operations/reverse_rotate.c\
 
-C_BONUS = ./checker_bonus/check_utlis.c \
-		  ./checker_bonus/checker.c \
+C_BONUS = ./checker_bonus/checker.c \
 		  ./checker_bonus/get_next_line.c \
 		  ./checker_bonus/get_next_line_utlis.c \
 		  ./mandatory/check_sorted.c \
