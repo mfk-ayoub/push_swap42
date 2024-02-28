@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/23 03:45:57 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/28 01:10:31 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int					is_sorted(t_stack *stack);
 t_stack				*check_min(t_stack *stack);
 t_stack				*check_max(t_stack *stack);
 void				fun(char **av);
-int					check_overflow(long long num);
+int					check_overflow(unsigned long int num);
 void				check_ove(char **data);
 // init stack
 

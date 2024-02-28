@@ -6,13 +6,13 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:41:08 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/23 03:45:29 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/28 01:33:17 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/push_swap.h"
 
-int	check_overflow(long long num)
+int	check_overflow(unsigned long int num)
 {
 	if (num > INT_MAX)
 	{
@@ -47,8 +47,8 @@ static bool	is_space(char c)
 
 long long	ft_atoi(char *str)
 {
-	long long	ans;
-	long long	result;
+	long long int	ans;
+	long long		result;
 
 	ans = 0;
 	result = 1;
@@ -67,6 +67,7 @@ long long	ft_atoi(char *str)
 	}
 	if (check_overflow(ans))
 	{
+		return (2147483648);
 	}
 	return (result * ans);
 }
@@ -74,14 +75,13 @@ long long	ft_atoi(char *str)
 void	check_ove(char **data)
 {
 	unsigned long int	i;
-	long long			value;
 
 	i = 0;
 	while (data[i])
 	{
-		value = ft_atoi(data[i]);
-		if (check_overflow(value))
+		if (ft_atoi(data[i]) == 2147483648)
 		{
+			ft_putendl_fd("Error", 2);
 			free_char_array(data);
 			exit(1);
 		}
