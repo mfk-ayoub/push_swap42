@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:19:34 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/23 03:48:59 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/29 00:29:46 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char				*ft_strnstr(const char *big, const char *little,
 int					ft_strcmp(char *s1, char *s2);
 int					is_sorted(t_stack *stack);
 void				fun(char **av);
-int					check_overflow(long long num);
+int					check_overflow(unsigned long int num);
 void				check_ove(char **data);
 void				check_op(t_stack **a, t_stack **b, char *op);
 void				compare(t_stack **a, t_stack **b, char *op);

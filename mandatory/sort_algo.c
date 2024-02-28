@@ -6,17 +6,11 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:17:38 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/22 23:31:10 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/29 00:34:24 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	free_all(t_helper *helper)
-{
-	if (helper != NULL)
-		free(helper);
-}
 
 void	cheking_and_push(t_stack **a, t_stack **b, int *tab, t_helper *helper)
 {
@@ -38,8 +32,8 @@ void	cheking_and_push(t_stack **a, t_stack **b, int *tab, t_helper *helper)
 		}
 		else
 		{
-			last_checking(a, b, tab, helper);
-			check_op_b(b, tab[index]);
+			if (!last_checking(a, b, tab, helper))
+				check_op_b(b, tab[index]);
 		}
 	}
 	while ((*a)->data > tab[0])
@@ -112,5 +106,5 @@ void	sort_try(t_stack **a, t_stack **b, int *sorted_array)
 			sort_helper(a, sorted_array, helper);
 	}
 	cheking_and_push(a, b, sorted_array, helper);
-	free_all(helper);
+	free(helper);
 }

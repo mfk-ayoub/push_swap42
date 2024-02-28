@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:19:20 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/28 01:10:31 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/29 00:34:42 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int					get_numbre_chunk(t_stack **a);
 void				big_sort(t_stack **a, t_stack **b);
 int					find_numbre_in_stack(t_stack *stack, int num);
 void				check_op_b(t_stack **b, int n);
-void				last_checking(t_stack **a, t_stack **b, int *tab,
+int					last_checking(t_stack **a, t_stack **b, int *tab,
 						t_helper *helper);
 
 // checker

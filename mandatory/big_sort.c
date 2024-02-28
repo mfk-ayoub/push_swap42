@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:33:43 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/23 15:09:57 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/02/28 23:48:57 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,26 @@ void	sort_three(t_stack **a)
 		sa(a, 1);
 }
 
+void	checking_op(t_stack **a, int data)
+{
+	t_stack	*tmp;
+	int		oper;
+
+	tmp = *a;
+	oper = 0;
+	while (tmp)
+	{
+		if (tmp->data == data)
+			break ;
+		oper++;
+		tmp = tmp->next;
+	}
+	if (oper <= (stack_size(*a) / 2))
+		ra(a, 1);
+	else
+		rra(a, 1);
+}
+
 void	sort_4_and_5(t_stack **a, t_stack **b)
 {
 	t_stack	*min_a;
@@ -32,10 +52,11 @@ void	sort_4_and_5(t_stack **a, t_stack **b)
 	while (stack_size(*a) != 3)
 	{
 		min_a = check_min(*a);
-		if (*a == min_a)
-			pb(b, a, 1);
-		else
-			ra(a, 1);
+		while ((*a)->data != min_a->data)
+		{
+			checking_op(a, min_a->data);
+		}
+		pb(b, a, 1);
 	}
 	sort_three(a);
 	while (*b)
