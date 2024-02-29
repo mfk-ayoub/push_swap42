@@ -6,7 +6,7 @@
 #    By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 23:35:46 by ayel-mou          #+#    #+#              #
-#    Updated: 2024/02/25 20:03:13 by ayel-mou         ###   ########.fr        #
+#    Updated: 2024/02/29 02:50:28 by ayel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,12 +60,17 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@clear
-	@echo "${GREEN}\n✅ push swap completed successfully! ✅${ENDCOLOR}"
+	@echo "${YELLOW}░▄▀▀▄░█░▒█░█▀▀░█░░░ ${BLUE}█▀▀░█░░░█░█▀▀▄░▄▀▀▄${YELLOW}"
+	@echo "${YELLOW}░█▄▄█░█░▒█░▀▀▄░█▀▀█ ${BLUE}▀▀▄░▀▄█▄▀░█▄▄█░█▄▄█${YELLOW}"
+	@echo "${YELLOW}░█░░░░░▀▀▀░▀▀▀░▀░░▀ ${BLUE}▀▀▀░░▀░▀░░▀░░▀░█░░░${YELLOW}"
 
+	
 bonus: $(OBJ_BONUS)
 	@$(CC) $(CFLAGS) -o $(BONUS) $(OBJ_BONUS)
 	@clear
-	@echo "${GREEN}\n✅ bonus completed successfully! ✅${ENDCOLOR}"
+	@echo "${MAGENTA}░█▀▄░█░░░░█▀▀░█▀▄░█░▄░█▀▀░█▀▀▄░░${MAGENTA}"
+	@echo "${MAGENTA}░█░░░█▀▀█░█▀▀░█░░░█▀▄░█▀▀░█▄▄▀░░${MAGENTA}"
+	@echo "${MAGENTA}░▀▀▀░▀░░▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀▀░░${MAGENTA}"
 
 %.o: %.c $(INCLUDE)
 	@$(CC) $(CFLAGS) -c $< -o $@
