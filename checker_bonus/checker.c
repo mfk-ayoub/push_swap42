@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:19:06 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/26 14:14:37 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/03/02 00:50:21 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ int	main(int ac, char **av)
 		free_char_array(par);
 		exit(1);
 	}
-	check_ove(par);
 	a = init_stack(ft_strlen_array(par), par);
 	free_char_array(par);
 	read_op(&a, &b);

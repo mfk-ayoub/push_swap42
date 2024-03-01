@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:41:08 by ayel-mou          #+#    #+#             */
-/*   Updated: 2024/02/28 01:55:13 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2024/03/02 00:47:31 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@ int	check_overflow(unsigned long int num)
 {
 	if (num > INT_MAX)
 	{
-		return (1);
+		ft_putendl_fd("Error", 2);
+		exit(1);
 	}
 	else
-	{
 		return (0);
-	}
 }
 
 int	ft_isdigit(int index)
@@ -47,17 +46,20 @@ static bool	is_space(char c)
 
 long long	ft_atoi(char *str)
 {
-	long long int	ans;
-	long long		result;
+	long long			ans;
+	long long			result;
+	unsigned long int	res;
 
+	res = 1;
 	ans = 0;
 	result = 1;
-	if (str == NULL)
-		return (0);
 	while (is_space(*str))
 		str++;
 	if (*str == '-')
+	{
 		result *= -1;
+		res = 0;
+	}
 	if (*str == '+' || *str == '-')
 		str++;
 	while (*str)
@@ -65,26 +67,7 @@ long long	ft_atoi(char *str)
 		ans = (ans * 10) + (*str - '0');
 		str++;
 	}
-	if (check_overflow(ans))
-	{
-		return (2147483648);
-	}
+	if (res == 1 && check_overflow(ans))
+		exit(1);
 	return (result * ans);
-}
-
-void	check_ove(char **data)
-{
-	unsigned long int	i;
-
-	i = 0;
-	while (data[i])
-	{
-		if (ft_atoi(data[i]) == 2147483648)
-		{
-			ft_putendl_fd("Error", 2);
-			free_char_array(data);
-			exit(1);
-		}
-		i++;
-	}
 }
