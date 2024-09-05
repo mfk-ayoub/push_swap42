@@ -41,3 +41,7 @@ The push swap algorithm uses a set of instructions to manipulate the stacks:
 - `rra`: Reverse rotate stack A (shift all elements down by one).
 - `rrb`: Reverse rotate stack B (shift all elements down by one).
 - `rrr`: `rra` and `rrb` combined.
+  
+  ## CONTRIBUTING
+
+If you find any issues or have suggestions for improvements, feel free to fork the repository and open an issue or submit a pull request.
